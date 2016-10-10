@@ -79,7 +79,7 @@ public class App extends Application {
 		_background = new voxspell.inputoutput.BackgroundMusic();
 		_instance = this;
 		this._primaryStage = primaryStage;
-		this._primaryStage.setTitle("VOXSpell 0.0.3");
+		this._primaryStage.setTitle("VOXSpell");
 		setLayout();
 	}
 
@@ -158,7 +158,6 @@ public class App extends Application {
 
 			Scene scene1 = new Scene(_root, 600, 400);
 			scene1.getStylesheets().add(getClass().getResource("voxspell/gui/protoTheme.css").toExternalForm());
-			// scene1.getStylesheets().add("https://fonts.googleapis.com/css?family=Montserrat:400");
 			_primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("voxspell/gui/VOX.png")));
 			_primaryStage.setScene(scene1);
 			_primaryStage.setResizable(false);

@@ -58,7 +58,7 @@ public abstract class SpellingQuiz implements Serializable {
 		_quizWords = generateWordList();
 		_state = QuizState.NEW;
 		_currentWord = _quizWords.get(0);
-		TextToSpeech.access().speak("Round starting: spell " + _currentWord.word());
+		TextToSpeech.access().speak("Please spell " + _currentWord.word());
 	}
 
 	/**
@@ -229,11 +229,11 @@ public abstract class SpellingQuiz implements Serializable {
 			_currentWord = _quizWords.get(wordNum());
 			_timesPlayed = 1;
 			if (_state == QuizState.MASTERED) {
-				TextToSpeech.access().speak("Correct, spell " + _currentWord.word());
+				TextToSpeech.access().speak("Awesome! Now spell " + _currentWord.word());
 			} else if (_state == QuizState.FAULTED) {
-				TextToSpeech.access().speak("Correct, spell " + _currentWord.word());
+				TextToSpeech.access().speak("Correct! Now spell " + _currentWord.word());
 			} else if (_state == QuizState.FAILED) {
-				TextToSpeech.access().speak("Incorrect. Next word: spell " + _currentWord.word());
+				TextToSpeech.access().speak("Incorrect, better luck next time! Now spell " + _currentWord.word());
 			} else {
 				TextToSpeech.access().speak(_currentWord.word());
 

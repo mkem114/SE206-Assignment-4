@@ -49,7 +49,7 @@
    <top>
       <AnchorPane maxHeight="70.0" prefHeight="70.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="286.0" layoutY="35.0" styleClass="ui-status-text-large" text="VOX Spell 0.0.3" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+            <Label alignment="CENTER" layoutX="286.0" layoutY="35.0" styleClass="ui-status-text-large" text="VOX Spell" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font size="25.0" />
                </font>
