@@ -9,13 +9,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import voxspell.gamelogic.SpellingGame;
+import voxspell.inputoutput.BackgroundMusic;
 import voxspell.inputoutput.SaveGame;
 
 // REFERENCE: The implementation technique was inspired by this website:
 // http://javajdk.net/tutorial/multiple-javafx-scenes-sharing-one-menubar/
 
 /**
- * <h1>voxspell.gui.App</h1> This is the entry point to the voxspell program, from this class
+ * <h1>App</h1> This is the entry point to the voxspell program, from this class
  * the instance of the application is made. It represents the instance of the
  * application
  * <p>
@@ -36,6 +37,7 @@ public class App extends Application {
 	 * File name of the file with the list of words to load
 	 */
 	public static final String FILENAME = "nzcer-wordlist.txt";
+	private BackgroundMusic _background;
 	private static App _instance;
 	private BorderPane _root = new BorderPane();
 	private SpellingGame _game;
@@ -74,6 +76,7 @@ public class App extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		_background = new voxspell.inputoutput.BackgroundMusic();
 		_instance = this;
 		this._primaryStage = primaryStage;
 		this._primaryStage.setTitle("VOXSpell 0.0.3");
