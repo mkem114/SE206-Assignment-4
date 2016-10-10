@@ -8,7 +8,7 @@ import javafx.concurrent.Task;
  * Created by mkem114 on 10/10/16.
  */
 public class BackgroundMusic {
-    public static final String[] _playlist = {"s0le_City_Ambient_EP_intro.wav"};
+    public static final String[] _playlist = {"music.wav"};
     private static BackgroundMusic _instance = null;
     private int _currentIndex;
     private Media _currentSong;
@@ -35,10 +35,14 @@ public class BackgroundMusic {
     }
 
     private void startNewPlayer() {
-        _currentSong = new Media(getClass().getResource(_playlist[_currentIndex]).toExternalForm());
-        _mediaPlayer = new MediaPlayer(_currentSong);
-        _mediaPlayer.setVolume(0.1);
-        _mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        _mediaPlayer.play();
+        try {
+            _currentSong = new Media(getClass().getResource(_playlist[_currentIndex]).toExternalForm());
+            _mediaPlayer = new MediaPlayer(_currentSong);
+            _mediaPlayer.setVolume(0.1);
+            _mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            _mediaPlayer.play();
+        } catch (NullPointerException e) {
+            //TODO
+        }
     }
 }

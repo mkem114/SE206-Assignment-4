@@ -56,7 +56,7 @@ public class WordListReader {
 	 */
 	public WordListReader(String filename) throws FileNotFoundException {
 		_file = new BufferedReader(new FileReader(filename));
-		_listeners = new LinkedList<SpellingGame>();
+		_listeners = new LinkedList<>();
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class WordListReader {
 		/**
 		 * Only constructor because a list of games is required
 		 * 
-		 * @param games
+		 * @param games The spelling games to be informed when the word list is read
 		 */
 		public WordReader(List<SpellingGame> games) {
 			_listeners = games;
@@ -109,16 +109,17 @@ public class WordListReader {
 			List<List<String>> allWords = new ArrayList<>();
 			while (true) {
 				String w = _file.readLine();
+				//w = w.trim();
 				if (w == null) {
 					break;
 				} else {
 					if (w.matches("%Level .*")) {
-						allWords.add(new ArrayList<String>());
-					} else {
+						allWords.add(new ArrayList<>());
+					} else if (!w.contains(" ")) {
 						w = w.toLowerCase();
-						System.out.println(w);
 						allWords.get(allWords.size() - 1).add(w);
 					}
+
 				}
 			}
 			for (SpellingGame sg : _listeners) {
