@@ -1,3 +1,5 @@
+package voxspell.gui;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,10 +13,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.BorderPane;
+import voxspell.gui.App;
 import voxspell.inputoutput.TextToSpeech;
 
 /**
- * <h1>OptionsMenuController</h1> Controller class responsible for changing the
+ * <h1>voxspell.gui.OptionsMenuController</h1> Controller class responsible for changing the
  * TTS voices and resetting the game
  * 
  * @author tkro003 (primary)
@@ -50,8 +53,8 @@ public class OptionsMenuController implements Initializable {
 	public void goBack(ActionEvent evt) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/MainMenu.fxml"));
-			BorderPane menu = (BorderPane) loader.load();
+			loader.setLocation(App.class.getResource("MainMenu.fxml"));
+			BorderPane menu = loader.load();
 
 			BorderPane border = App.inst().root();
 			border.setCenter(menu);

@@ -202,6 +202,13 @@ public class TextToSpeech {
 				BufferedReader out = new BufferedReader(new InputStreamReader(stdout));
 				String line = null;
 				while ((line = out.readLine()) != null) {
+					if (line.equals("kal_diphone")) {
+						line = "KAL";
+					} else if (line.equals("rab_diphone")) {
+						line = "RAB";
+					} else if (line.equals("akl_diphone")) {
+						line = "Auckland";
+					}
 					_voices.add(line);
 				}
 			} catch (IOException e) {

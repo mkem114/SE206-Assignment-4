@@ -1,3 +1,5 @@
+package voxspell.gui;
+
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -11,7 +13,7 @@ import voxspell.gamelogic.SpellingGame;
 import voxspell.gamelogic.SpellingQuiz;
 
 /**
- * <h1>LevelCompleteController</h1> Controller class responsible for end-of-game
+ * <h1>voxspell.gui.LevelCompleteController</h1> Controller class responsible for end-of-game
  * screen with statistics.
  * 
  * @author tkro003 (primary)
@@ -77,7 +79,7 @@ public class LevelCompleteController {
 	void backToMenu(ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/MainMenu.fxml"));
+			loader.setLocation(App.class.getResource("MainMenu.fxml"));
 			BorderPane menu = (BorderPane) loader.load();
 
 			BorderPane border = App.inst().root();
@@ -101,7 +103,7 @@ public class LevelCompleteController {
 
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/Game.fxml"));
+			loader.setLocation(App.class.getResource("Game.fxml"));
 			AnchorPane game = (AnchorPane) loader.load();
 			GameController controller = loader.<GameController>getController();
 			controller.setGame();
@@ -125,7 +127,7 @@ public class LevelCompleteController {
 	void showReward(ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/VideoPlayer.fxml"));
+			loader.setLocation(App.class.getResource("VideoPlayer.fxml"));
 			AnchorPane vid = (AnchorPane) loader.load();
 			VideoPlayerController controller = loader.<VideoPlayerController>getController();
 			controller.passQuiz(_quiz);

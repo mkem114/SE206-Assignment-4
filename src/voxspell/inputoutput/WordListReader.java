@@ -116,6 +116,7 @@ public class WordListReader {
 						allWords.add(new ArrayList<String>());
 					} else {
 						w = w.toLowerCase();
+						System.out.println(w);
 						allWords.get(allWords.size() - 1).add(w);
 					}
 				}

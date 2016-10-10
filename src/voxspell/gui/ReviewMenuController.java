@@ -1,3 +1,5 @@
+package voxspell.gui;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ import javafx.scene.layout.BorderPane;
 import voxspell.gamelogic.SpellingGame;
 
 /**
- * <h1>ReviewMenuController</h1> Controller class with level selection tools
+ * <h1>voxspell.gui.ReviewMenuController</h1> Controller class with level selection tools
  * just for Review Mode
  * 
  * @author tkro003 (primary)
@@ -51,8 +53,8 @@ public class ReviewMenuController implements Initializable {
 
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/ReviewGame.fxml"));
-			AnchorPane game = (AnchorPane) loader.load();
+			loader.setLocation(App.class.getResource("ReviewGame.fxml"));
+			AnchorPane game = loader.load();
 			ReviewGameController controller = loader.<ReviewGameController>getController();
 			controller.setGame();
 
@@ -90,7 +92,7 @@ public class ReviewMenuController implements Initializable {
 	void goBack(ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/MainMenu.fxml"));
+			loader.setLocation(App.class.getResource("MainMenu.fxml"));
 			BorderPane menu = (BorderPane) loader.load();
 
 			BorderPane border = App.inst().root();

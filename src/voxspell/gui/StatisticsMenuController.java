@@ -1,3 +1,5 @@
+package voxspell.gui;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,9 +19,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import voxspell.gamelogic.SpellingGame;
+import voxspell.gui.App;
 
 /**
- * <h1>StatisticsMenuController</h1> Controller class responsible for displaying
+ * <h1>voxspell.gui.StatisticsMenuController</h1> Controller class responsible for displaying
  * statistics
  * 
  * @author tkro003 (primary)
@@ -55,8 +58,8 @@ public class StatisticsMenuController implements Initializable {
 
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/MainMenu.fxml"));
-			BorderPane menu = (BorderPane) loader.load();
+			loader.setLocation(App.class.getResource("MainMenu.fxml"));
+			BorderPane menu = loader.load();
 
 			BorderPane border = App.inst().root();
 			border.setCenter(menu);

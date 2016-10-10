@@ -1,3 +1,5 @@
+package voxspell.gui;
+
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -8,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 /**
- * <h1>MainMenuController</h1> Controller class responsible to be the "home
+ * <h1>voxspell.gui.MainMenuController</h1> Controller class responsible to be the "home
  * screen" the user sees
  * 
  * @author tkro003 (primary)
@@ -39,8 +41,8 @@ public class MainMenuController {
 	public void goPlay(ActionEvent evt) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/Game.fxml"));
-			AnchorPane game = (AnchorPane) loader.load();
+			loader.setLocation(App.class.getResource("Game.fxml"));
+			AnchorPane game = loader.load();
 			GameController controller = loader.<GameController>getController();
 			controller.setGame();
 
@@ -61,8 +63,8 @@ public class MainMenuController {
 	public void goOptions(ActionEvent evt) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/OptionsMenu.fxml"));
-			AnchorPane options = (AnchorPane) loader.load();
+			loader.setLocation(App.class.getResource("OptionsMenu.fxml"));
+			AnchorPane options = loader.load();
 
 			BorderPane border = App.inst().root();
 			border.setCenter(options);
@@ -81,7 +83,7 @@ public class MainMenuController {
 	public void goReview(ActionEvent evt) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/ReviewMenu.fxml"));
+			loader.setLocation(App.class.getResource("ReviewMenu.fxml"));
 			AnchorPane review = (AnchorPane) loader.load();
 
 			BorderPane border = App.inst().root();
@@ -101,7 +103,7 @@ public class MainMenuController {
 	public void goStatistics(ActionEvent evt) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/StatisticsMenu.fxml"));
+			loader.setLocation(App.class.getResource("StatisticsMenu.fxml"));
 			AnchorPane stats = (AnchorPane) loader.load();
 
 			BorderPane border = App.inst().root();

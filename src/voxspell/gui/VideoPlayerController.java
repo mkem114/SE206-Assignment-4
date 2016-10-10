@@ -1,3 +1,5 @@
+package voxspell.gui;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -16,7 +18,7 @@ import javafx.util.Duration;
 import voxspell.gamelogic.SpellingQuiz;
 
 /**
- * <h1>VideoPlayerController</h1> Controller class responsible for showing the
+ * <h1>voxspell.gui.VideoPlayerController</h1> Controller class responsible for showing the
  * reward video at the end of a quiz
  * 
  * @author tkro003
@@ -107,7 +109,7 @@ public class VideoPlayerController implements Initializable {
 		stop(); // prevents buffer from staying open or whatever
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("voxspell/gui/LevelComplete.fxml"));
+			loader.setLocation(App.class.getResource("LevelComplete.fxml"));
 			AnchorPane lvlcomplete = (AnchorPane) loader.load();
 			if (_quiz != null) {
 				LevelCompleteController controller = loader.<LevelCompleteController>getController();
