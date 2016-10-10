@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -32,9 +33,11 @@ public class WordListReader {
 	/**
 	 * Default file name to read words from
 	 */
-	public static final String DEFAULTFILENAME = "nzcer-wordlist.txt";
+	public static final String DEFAULTWORDLISTFILENAME = "nzcer-wordlist.txt";
+	public static final String DEFAULTHOMOPHONESFILENAME = "homophones.txt";
 	private List<SpellingGame> _listeners;
-	private BufferedReader _file;
+	private BufferedReader _wordlistFile;
+	private BufferedReader _homophonesFile;
 
 	/**
 	 * Creates a WordListReader object assuming the default file name
@@ -43,7 +46,7 @@ public class WordListReader {
 	 *             Thrown when the file is in the wrong place or non-existing
 	 */
 	public WordListReader() throws FileNotFoundException {
-		this(DEFAULTFILENAME);
+		this(DEFAULTWORDLISTFILENAME);
 	}
 
 	/**
@@ -55,7 +58,8 @@ public class WordListReader {
 	 *             Thrown when the file is in the wrong place or non-existing
 	 */
 	public WordListReader(String filename) throws FileNotFoundException {
-		_file = new BufferedReader(new FileReader(filename));
+		_wordlistFile = new BufferedReader(new FileReader(filename));
+		_homophonesFile = new BufferedReader(new FileReader(DEFAULTHOMOPHONESFILENAME));
 		_listeners = new LinkedList<>();
 	}
 
@@ -106,9 +110,10 @@ public class WordListReader {
 		 */
 		@Override
 		protected Object call() throws Exception {
+			HashSet<String> homophones = readHomophones();
 			List<List<String>> allWords = new ArrayList<>();
 			while (true) {
-				String w = _file.readLine();
+				String w = _wordlistFile.readLine();
 				//w = w.trim();
 				if (w == null) {
 					break;
@@ -117,9 +122,10 @@ public class WordListReader {
 						allWords.add(new ArrayList<>());
 					} else if (!w.contains(" ")) {
 						w = w.toLowerCase();
-						allWords.get(allWords.size() - 1).add(w);
+						if (!homophones.contains(w)) {
+							allWords.get(allWords.size() - 1).add(w);
+						}
 					}
-
 				}
 			}
 			for (SpellingGame sg : _listeners) {
@@ -127,6 +133,24 @@ public class WordListReader {
 			}
 
 			return null;
+		}
+
+		private HashSet<String> readHomophones() throws Exception {
+			HashSet<String> homophones = new HashSet<>();
+
+			while (true) {
+				String rawLine = _homophonesFile.readLine();
+				if (rawLine == null) {
+					break;
+				} else {
+					String[] words = rawLine.split(", ");
+					for (String w : words) {
+						homophones.add(w.toLowerCase());
+					}
+				}
+			}
+
+			return homophones;
 		}
 	}
 }
