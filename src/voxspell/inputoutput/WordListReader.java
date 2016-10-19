@@ -27,7 +27,7 @@ import voxspell.gamelogic.SpellingGame;
  * @version 0.5.0
  * @author mkem114 (primary)
  * @author tkro003 (secondary)
- * @since
+ * @since 2016-10-11
  */
 public class WordListReader {
 	/**
@@ -69,7 +69,7 @@ public class WordListReader {
 	 * @throws IOException
 	 */
 	public void readWords() throws IOException {
-		new Thread(new WordReader(_listeners)).start();
+		new Thread(new WordReaderHelper(_listeners)).start();
 	}
 
 	/**
@@ -85,14 +85,14 @@ public class WordListReader {
 	}
 
 	/**
-	 * <h1>WordReader</h1> Private class that actually does all the work on a
+	 * <h1>WordReaderHelper</h1> Private class that actually does all the work on a
 	 * background thread
 	 * 
 	 * @version 0.5.0
 	 * @author mkem114
 	 * @since 2016-09-18
 	 */
-	private class WordReader extends Task<Object> {
+	private class WordReaderHelper extends Task<Object> {
 		List<SpellingGame> _listeners;
 
 		/**
@@ -100,7 +100,7 @@ public class WordListReader {
 		 * 
 		 * @param games The spelling games to be informed when the word list is read
 		 */
-		public WordReader(List<SpellingGame> games) {
+		public WordReaderHelper(List<SpellingGame> games) {
 			_listeners = games;
 		}
 
