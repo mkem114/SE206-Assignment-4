@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@protoTheme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="voxspell.gui.MainMenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@protoTheme.css" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="voxspell.gui.MainMenuController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -30,7 +30,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="reviewBtn" mnemonicParsing="false" onAction="#goReview" prefHeight="50.0" prefWidth="150.0" styleClass="main-menu-button" text="Review" />
+                  <Button fx:id="reviewBtn" mnemonicParsing="false" onAction="#goReview" prefHeight="50.0" prefWidth="150.0" styleClass="main-menu-button" text="Custom" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
