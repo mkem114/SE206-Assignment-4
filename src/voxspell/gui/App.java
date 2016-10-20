@@ -49,7 +49,7 @@ public class App extends Application {
 	/**
 	 * Access the singleton instance
 	 * 
-	 * @return voxspell.gui.voxspell.gui.App instance
+	 * @return voxspell.gui.App instance
 	 */
 	public static App inst() {
 		return _instance;
@@ -74,14 +74,14 @@ public class App extends Application {
 	}
 
 	/**
-	 * Initialise the voxspell.gui.voxspell.gui.App on application start
+	 * Initialise the voxspell.gui.App on application start
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		_background = new voxspell.inputoutput.BackgroundMusic();
 		_instance = this;
 		this._primaryStage = primaryStage;
-		this._primaryStage.setTitle("VOXSpell BETA");
+		this._primaryStage.setTitle("VOXSpell");
 		setLayout();
 	}
 
@@ -117,7 +117,7 @@ public class App extends Application {
 	public void resetGame() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("PickLevel.fxml"));
+			loader.setLocation(getClass().getResource("views/PickLevel.fxml"));
 			AnchorPane pickLevel;
 			pickLevel = loader.load();
 			_root.setCenter(pickLevel);
@@ -145,22 +145,22 @@ public class App extends Application {
 	public void setLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("HomePane.fxml"));
+			loader.setLocation(getClass().getResource("views/HomePane.fxml"));
 			if (loadGame() && _game != null) { // if there's a save game then go
 												// directly to the main menu
-				loader.setLocation(getClass().getResource("MainMenu.fxml"));
+				loader.setLocation(getClass().getResource("views/MainMenu.fxml"));
 				BorderPane menu = loader.load();
 				_root.setCenter(menu);
 			} else { // otherwise get the user to select the level they want to
 						// start at
-				loader.setLocation(getClass().getResource("PickLevel.fxml"));
+				loader.setLocation(getClass().getResource("views/PickLevel.fxml"));
 				AnchorPane pickLevel = loader.load();
 				_root.setCenter(pickLevel);
 			}
 
 			Scene scene1 = new Scene(_root, 600, 400);
-			scene1.getStylesheets().add(getClass().getResource("protoTheme.css").toExternalForm());
-			_primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("VOX.png")));
+			scene1.getStylesheets().add(getClass().getResource("views/protoTheme.css").toExternalForm());
+			_primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("views/VOX.png")));
 			_primaryStage.setScene(scene1);
 			_primaryStage.setResizable(false);
 			_primaryStage.sizeToScene(); // prevents border from setResizable

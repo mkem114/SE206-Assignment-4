@@ -1,0 +1,140 @@
+/* Colors from: http://www.flatuicolorpicker.com/ */
+
+.root {
+	-fx-background-color: #b3ff99;
+	-fx-font-family: 'Montserrat', sans-serif;
+
+}
+
+.ui-large-text {
+	-fx-font-size: 30pt;
+}
+
+.ui-status-text-small {
+	-fx-font-size: 8pt;
+}
+
+.ui-status-text-large{
+	-fx-font-size: 24pt;
+}
+
+.main-menu-button {
+    -fx-padding: 5 22 5 22;   
+    -fx-background-radius: 30;
+    -fx-background-color: #33cc33;
+    -fx-font-size: 16pt;
+}
+
+.main-menu-button:hover {
+	-fx-background-color: #5cd65c;
+}
+
+.main-menu-button:pressed {
+	-fx-background-color: #196619;
+}
+.main-menu-button:focused {
+	-fx-border-color: #196619;
+    -fx-border-width: 2;
+    -fx-border-radius: 30;	
+}
+
+
+/* Basic Buttons */
+.menu-button {
+    -fx-padding: 2 2 2 2;   
+    -fx-background-radius: 30;
+    -fx-background-color: #33cc33;
+    -fx-font-size: 10pt;
+}
+
+.menu-button:hover {
+	-fx-background-color: #5cd65c;
+}
+
+.menu-button:pressed {
+	-fx-background-color: #196619;
+}
+
+.menu-button:focused {
+	-fx-border-color: #196619;
+    -fx-border-width: 2;
+    -fx-border-radius: 30;	
+}
+
+/* Special Buttons (Error/Play) */
+.error-menu-button {
+    -fx-padding: 2 2 2 2;   
+    -fx-background-radius: 30;
+    -fx-background-color: #D91E18;
+    -fx-font-size: 10pt;
+    -fx-text-fill: white;
+}
+
+.error-menu-button:hover {
+	-fx-background-color: #F22613;
+}
+
+.error-menu-button:pressed {
+	-fx-background-color: #CF000F;
+}
+
+.error-menu-button:focused {
+	-fx-border-color: #CF000F;
+    -fx-border-width: 0;
+}
+
+.gameplay-menu-button {
+    -fx-padding: 2 2 2 2;   
+    -fx-background-radius: 30;
+    -fx-background-color: #26A65B;
+    -fx-font-size: 10pt;
+    -fx-text-fill: white;
+}
+
+.gameplay-menu-button:hover {
+	-fx-background-color: #3FC380;
+}
+
+.gameplay-menu-button:pressed {
+	-fx-background-color: #2ECC71;
+}
+
+.gameplay-menu-button:focused {
+	-fx-border-color: #2ECC71;
+    -fx-border-width: 0;
+}
+
+/* Comboboxes */
+.combo-box-base {
+	-fx-font-size: 12pt;
+	-fx-background-radius: 30;
+	-fx-background-color: white;
+	-fx-border-color: #196619;
+    -fx-border-radius: 30;	
+	-fx-border-width: 2;
+	-fx-text-fill: black;
+	-fx-pref-width: 250;
+	-fx-pref-height: 45;
+}
+
+.combo-box-popup > .list-view {
+	-fx-translate-x: 15;
+	-fx-pref-width: 220;
+	-fx-effect: null;
+	-fx-background-insets: 0;
+ 	-fx-padding: 0;}
+
+
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-font-size: 11pt;
+    -fx-padding: 4 0 4 5;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:hover{
+    -fx-background-color: #5cd65c;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected{
+    -fx-background-color: #33cc33;  /* TODO: this probably is the "active" color" */
+}
