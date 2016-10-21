@@ -31,7 +31,7 @@ public class WordListReader {
 	 * Default file name to read words from
 	 */
 	public static final String DEFAULTWORDLISTFILENAME = "defaultWordlist.txt";
-	public static final String DEFAULTHOMOPHONESFILENAME = "voxspell/homophones.txt";
+	public static final String DEFAULTHOMOPHONESFILENAME = "./VOXSpell/homophones.txt";
 	private List<SpellingGame> _listeners;
 	private BufferedReader _wordlistFile;
 	private BufferedReader _homophonesFile;

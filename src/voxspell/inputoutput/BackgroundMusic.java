@@ -2,14 +2,15 @@ package voxspell.inputoutput;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+
 import java.io.File;
-import javafx.concurrent.Task;
 
 /**
  * Created by mkem114 on 10/10/16.
  */
 public class BackgroundMusic {
     public static final String[] _playlist = {"music.wav"};
+    public static final String _musicLocation = "./VOXSpell/music/";
     private static BackgroundMusic _instance = null;
     private int _currentIndex;
     private Media _currentSong;
@@ -37,12 +38,14 @@ public class BackgroundMusic {
 
     private void startNewPlayer() {
         try {
-            _currentSong = new Media((new File("voxspell/music/"+_playlist[_currentIndex])).toURI().toString());
+            System.out.println(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+            _currentSong = new Media((new File(_musicLocation+_playlist[_currentIndex])).toURI().toString());
             _mediaPlayer = new MediaPlayer(_currentSong);
+            //TODO Volume to 0.1
             _mediaPlayer.setVolume(0.1);
             _mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             _mediaPlayer.play();
-        } catch (NullPointerException e) {
+        } catch (Exception e) {
             //TODO
         }
     }

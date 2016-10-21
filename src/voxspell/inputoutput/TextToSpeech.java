@@ -41,7 +41,7 @@ public class TextToSpeech {
 	 * The location of festival in UG4
 	 */
 	public static final String festivalLocation = "/usr/share/festival/voices/english";
-	public static final String scmStr = "./.voice.scm";
+	public static final String scmStr = "./VOXSpell/.voice.scm";
 
 	private static TextToSpeech _instance = null;
 	private static OS _os;

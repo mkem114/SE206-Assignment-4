@@ -20,7 +20,7 @@
       </element>
       <element id="file-copy" path="$PROJECT_DIR$/READEME.txt" />
       <element id="directory" name="VOXSpell">
-        <element id="dir-copy" path="$PROJECT_DIR$/voxspell" />
+        <element id="dir-copy" path="$PROJECT_DIR$/VOXSpell" />
       </element>
       <element id="file-copy" path="$PROJECT_DIR$/RUN.sh" />
     </root>

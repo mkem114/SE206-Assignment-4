@@ -42,7 +42,7 @@ public class MainMenuController {
 	public void goPlay(ActionEvent evt) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("Game.fxml"));
+			loader.setLocation(App.class.getResource("views/Game.fxml"));
 			AnchorPane game = loader.load();
 			GameController controller = loader.getController();
 			controller.setGame();
