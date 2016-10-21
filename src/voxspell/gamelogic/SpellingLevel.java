@@ -19,6 +19,7 @@ public class SpellingLevel implements Serializable {
 	 */
 	private static final long serialVersionUID = -9174985624580121154L;
 	private int _number;
+	private String _name;
 	private List<QuizWord> _words;
 	private List<SpellingQuiz> _quizzes;
 	private SpellingGame _game;

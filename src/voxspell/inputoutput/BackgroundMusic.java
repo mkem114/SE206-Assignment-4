@@ -2,6 +2,7 @@ package voxspell.inputoutput;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import java.io.File;
 import javafx.concurrent.Task;
 
 /**
@@ -36,7 +37,7 @@ public class BackgroundMusic {
 
     private void startNewPlayer() {
         try {
-            _currentSong = new Media(getClass().getResource(_playlist[_currentIndex]).toExternalForm());
+            _currentSong = new Media((new File("voxspell/music/"+_playlist[_currentIndex])).toURI().toString());
             _mediaPlayer = new MediaPlayer(_currentSong);
             _mediaPlayer.setVolume(0.1);
             _mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);

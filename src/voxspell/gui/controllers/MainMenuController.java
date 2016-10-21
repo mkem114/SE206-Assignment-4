@@ -44,7 +44,7 @@ public class MainMenuController {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(App.class.getResource("Game.fxml"));
 			AnchorPane game = loader.load();
-			GameController controller = loader.<GameController>getController();
+			GameController controller = loader.getController();
 			controller.setGame();
 
 			BorderPane border = App.inst().root();
@@ -69,6 +69,19 @@ public class MainMenuController {
 
 			BorderPane border = App.inst().root();
 			border.setCenter(options);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void goCustom(ActionEvent evt) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(App.class.getResource("views/CustomPickLevel.fxml"));
+			AnchorPane review = loader.load();
+
+			BorderPane border = App.inst().root();
+			border.setCenter(review);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

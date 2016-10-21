@@ -12,7 +12,7 @@ import voxspell.inputoutput.WordListReader;
  * <h1>SpellingGame</h1> Represents a spelling game in it's entirety; the level,
  * the words to be quizzed, all the quizzes and the history
  * <p>
- * Implements serialisable so that it can be so that the entire game state can
+ * Implements serializable so that it can be so that the entire game state can
  * be reloaded on next play if wished
  * 
  * @version 1.0
@@ -28,6 +28,9 @@ public class SpellingGame implements Serializable {
 	public static final int numLevels = 11;
 	private SpellingLevel _currentLevel;
 	private List<SpellingLevel> _levels;
+	private SpellingLevel _customCurrentLevel;
+	private List<SpellingLevel> _customLevels;
+
 
 	/**
 	 * Starts a new spelling game based on a filename for a file contains the
@@ -39,7 +42,8 @@ public class SpellingGame implements Serializable {
 	 *            Level to start on
 	 */
 	public SpellingGame(String wordlist, int startingLevel) {
-		_levels = new ArrayList<SpellingLevel>();
+		_levels = new ArrayList<>();
+		_customLevels = new ArrayList<>();
 
 		for (int i = 1; i <= numLevels; i++) {
 			_levels.add(new SpellingLevel(i, this));
@@ -75,6 +79,9 @@ public class SpellingGame implements Serializable {
 	public SpellingQuiz reviewQuiz() {
 		return _currentLevel.reviewQuiz();
 	}
+
+	public SpellingQuiz customQuiz() { //TODO IMPLEMENT
+		return _currentLevel.reviewQuiz(); }
 
 	/**
 	 * Whether or not there is anything to review on a particular level

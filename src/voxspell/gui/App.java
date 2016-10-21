@@ -38,7 +38,7 @@ public class App extends Application {
 	/**
 	 * File name of the file with the list of words to load
 	 */
-	public static final String FILENAME = "nzcer-wordlist.txt";
+	public static final String FILENAME = "defaultWordlist.txt";
 	private BackgroundMusic _background;
 	private static App _instance;
 	private BorderPane _root = new BorderPane();

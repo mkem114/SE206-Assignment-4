@@ -4,10 +4,7 @@
 
 package voxspell.inputoutput;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -33,8 +30,8 @@ public class WordListReader {
 	/**
 	 * Default file name to read words from
 	 */
-	public static final String DEFAULTWORDLISTFILENAME = "nzcer-wordlist.txt";
-	public static final String DEFAULTHOMOPHONESFILENAME = "homophones.txt";
+	public static final String DEFAULTWORDLISTFILENAME = "defaultWordlist.txt";
+	public static final String DEFAULTHOMOPHONESFILENAME = "voxspell/homophones.txt";
 	private List<SpellingGame> _listeners;
 	private BufferedReader _wordlistFile;
 	private BufferedReader _homophonesFile;
@@ -58,7 +55,7 @@ public class WordListReader {
 	 *             Thrown when the file is in the wrong place or non-existing
 	 */
 	public WordListReader(String filename) throws FileNotFoundException {
-		_wordlistFile = new BufferedReader(new FileReader(filename));
+		_wordlistFile = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filename)));
 		_homophonesFile = new BufferedReader(new FileReader(DEFAULTHOMOPHONESFILENAME));
 		_listeners = new LinkedList<>();
 	}
