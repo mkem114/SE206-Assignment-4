@@ -1,8 +1,5 @@
 package voxspell.gui;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,6 +10,9 @@ import javafx.stage.Stage;
 import voxspell.gamelogic.SpellingGame;
 import voxspell.inputoutput.BackgroundMusic;
 import voxspell.inputoutput.SaveGame;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 // REFERENCE: The implementation technique was inspired by this website:
 // http://javajdk.net/tutorial/multiple-javafx-scenes-sharing-one-menubar/
@@ -38,12 +38,11 @@ public class App extends Application {
 	/**
 	 * File name of the file with the list of words to load
 	 */
-	public static final String FILENAME = "defaultWordlist.txt";
-	private BackgroundMusic _background;
 	private static App _instance;
+	private BackgroundMusic _background;
 	private BorderPane _root = new BorderPane();
-	private SpellingGame _game;
 	private SaveGame _save;
+	private SpellingGame _game;
 	private Stage _primaryStage;
 
 	/**
@@ -56,8 +55,18 @@ public class App extends Application {
 	}
 
 	/**
+	 * The entry point of the program
+	 *
+	 * @param args
+	 *            Ignored, whatever arguments the application is started with
+	 */
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	/**
 	 * Access to the primary stage
-	 * 
+	 *
 	 * @return Primary stage
 	 */
 	public BorderPane root() {
@@ -66,7 +75,7 @@ public class App extends Application {
 
 	/**
 	 * Access to the game instance
-	 * 
+	 *
 	 * @return Game instance
 	 */
 	public SpellingGame game() {
@@ -87,7 +96,7 @@ public class App extends Application {
 
 	/**
 	 * Loads the last saved game
-	 * 
+	 *
 	 * @return If the loading was successful
 	 */
 	// loads the game
@@ -130,12 +139,12 @@ public class App extends Application {
 
 	/**
 	 * Creates a new game with a selected starting level
-	 * 
+	 *
 	 * @param lvl
 	 *            The level to start from
 	 */
 	public void chooseLevel(int lvl) {
-		_game = new SpellingGame(FILENAME, lvl);
+		_game = new SpellingGame(lvl);
 		_save = new SaveGame(_game);
 	}
 
@@ -145,7 +154,7 @@ public class App extends Application {
 	public void setLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("views/HomePane.fxml"));
+
 			if (loadGame() && _game != null) { // if there's a save game then go
 												// directly to the main menu
 				loader.setLocation(getClass().getResource("views/MainMenu.fxml"));
@@ -158,25 +167,20 @@ public class App extends Application {
 				_root.setCenter(pickLevel);
 			}
 
+			// Sets window size
 			Scene scene1 = new Scene(_root, 600, 400);
+			// Set styling
 			scene1.getStylesheets().add(getClass().getResource("views/protoTheme.css").toExternalForm());
-			_primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("views/VOX.png")));
+			// Sets the icon
+			_primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("views/VOX2.png")));
+			// Starts application
 			_primaryStage.setScene(scene1);
+			// Make the application un-resizable
 			_primaryStage.setResizable(false);
 			_primaryStage.sizeToScene(); // prevents border from setResizable
 			_primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	/**
-	 * The entry point of the program
-	 * 
-	 * @param args
-	 *            Ignored, whatever arguments the application is started with
-	 */
-	public static void main(String[] args) {
-		launch(args);
 	}
 }

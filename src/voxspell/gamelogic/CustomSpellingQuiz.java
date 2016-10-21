@@ -5,8 +5,8 @@ import java.util.List;
 /**
  * Created by mkem114 on 10/10/16.
  */
-public class CustomQuiz extends SpellingQuiz {
-    public CustomQuiz(SpellingLevel level) {
+public class CustomSpellingQuiz extends SpellingQuiz {
+    public CustomSpellingQuiz(SpellingLevel level) {
         super(level);
     }
 

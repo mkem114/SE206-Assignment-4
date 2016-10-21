@@ -20,7 +20,6 @@ public class QuizWord implements Serializable {
 	private int _mastered;
 	private int _faulted;
 	private int _failed;
-	private boolean _upForReview;
 
 	/**
 	 * Creates a new quiz word based on a word by assuming it has no game
@@ -31,7 +30,6 @@ public class QuizWord implements Serializable {
 	 */
 	public QuizWord(String word) {
 		this(word, 0, 0, 0);
-		_upForReview = false;
 	}
 
 	/**
@@ -51,7 +49,6 @@ public class QuizWord implements Serializable {
 		_mastered = mastered;
 		_faulted = faulted;
 		_failed = failed;
-		_upForReview = false;
 	}
 
 	/**
@@ -72,22 +69,13 @@ public class QuizWord implements Serializable {
 		try {
 			QuizWord qw = (QuizWord) (o);
 			if (_word == qw.word() && _mastered == qw.timesMastered() && _faulted == qw.timesFaulted()
-					&& _failed == qw.timesFailed() && _upForReview == qw.toBeReviewed()) {
+					&& _failed == qw.timesFailed()) {
 				return true;
 			}
 		} catch (ClassCastException e) {
 			return false;
 		}
 		return false;
-	}
-
-	/**
-	 * If the word will appear in review mode then true is returned
-	 * 
-	 * @return Whether it will be in review mode
-	 */
-	public boolean toBeReviewed() {
-		return _upForReview;
 	}
 
 	/**
@@ -113,10 +101,6 @@ public class QuizWord implements Serializable {
 	 */
 	public void hasMastered() {
 		_mastered++;
-		if (_upForReview) {
-			_upForReview = false; // if you get it right in play you dont have
-									// to review
-		}
 	}
 
 	/**
@@ -150,7 +134,6 @@ public class QuizWord implements Serializable {
 	 */
 	public void hasFailed() {
 		_failed++;
-		_upForReview = true;
 	}
 
 	/**

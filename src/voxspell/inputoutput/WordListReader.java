@@ -4,14 +4,14 @@
 
 package voxspell.inputoutput;
 
+import javafx.concurrent.Task;
+import voxspell.gamelogic.SpellingGame;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-
-import javafx.concurrent.Task;
-import voxspell.gamelogic.SpellingGame;
 
 /**
  * <h1>WordListReader</h1> This class reads words in to a SpellingGame in
@@ -55,8 +55,13 @@ public class WordListReader {
 	 *             Thrown when the file is in the wrong place or non-existing
 	 */
 	public WordListReader(String filename) throws FileNotFoundException {
-		_wordlistFile = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filename)));
-		_homophonesFile = new BufferedReader(new FileReader(DEFAULTHOMOPHONESFILENAME));
+        // The default is in the same package so a different way to read is needed
+        if (filename.equals(DEFAULTWORDLISTFILENAME)) {
+            _wordlistFile = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filename)));
+        } else {
+            _wordlistFile = new BufferedReader(new FileReader(filename));
+        }
+        _homophonesFile = new BufferedReader(new FileReader(DEFAULTHOMOPHONESFILENAME));
 		_listeners = new LinkedList<>();
 	}
 
