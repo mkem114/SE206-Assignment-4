@@ -1,7 +1,5 @@
 package voxspell.gui.controllers;
 
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,9 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import voxspell.gamelogic.SpellingGame;
 import voxspell.gamelogic.SpellingQuiz;
 import voxspell.gui.App;
+
+import java.io.IOException;
 
 /**
  * <h1>voxspell.gui.controllers.LevelCompleteController</h1> Controller class responsible for end-of-game
@@ -61,13 +60,13 @@ public class LevelCompleteController {
 			rewardBtn.setVisible(true);
 			continueBtn.setVisible(true);
 		}
-		if (quiz.levelNum() >= SpellingGame.numLevels) {
+		if (App.inst().game().canLevelUp(quiz)) {
 			// Make sure user cannot access levels that don't exist
 			continueBtn.setVisible(false); // otherwise NPException
 		}
 
-		scoreLabel.setText(_quiz.numCorrect() + "/" + _quiz.numWordsToQuiz);
-		allTimeLabel.setText(_quiz.levelAccuracy() + "%");
+		scoreLabel.setText(_quiz.numCorrect() + "/" + _quiz.wordNum());
+		allTimeLabel.setText(_quiz.level().accuracy() + "%");
 	}
 
 	/**
@@ -81,7 +80,7 @@ public class LevelCompleteController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(App.class.getResource("views/MainMenu.fxml"));
-			BorderPane menu = (BorderPane) loader.load();
+			BorderPane menu = loader.load();
 
 			BorderPane border = App.inst().root();
 			border.setCenter(menu);
@@ -105,8 +104,8 @@ public class LevelCompleteController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(App.class.getResource("views/Game.fxml"));
-			AnchorPane game = (AnchorPane) loader.load();
-			GameController controller = loader.<GameController>getController();
+			AnchorPane game = loader.load();
+			GameController controller = loader.getController();
 			controller.setGame();
 
 			BorderPane border = App.inst().root();
@@ -129,8 +128,8 @@ public class LevelCompleteController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(App.class.getResource("views/VideoPlayer.fxml"));
-			AnchorPane vid = (AnchorPane) loader.load();
-			VideoPlayerController controller = loader.<VideoPlayerController>getController();
+			AnchorPane vid = loader.load();
+			VideoPlayerController controller = loader.getController();
 			controller.passQuiz(_quiz);
 
 			BorderPane border = App.inst().root();

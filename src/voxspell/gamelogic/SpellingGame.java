@@ -73,6 +73,13 @@ public class SpellingGame implements Serializable {
 		}
 	}
 
+	public boolean canLevelUp(SpellingQuiz quiz) {
+		if (quiz instanceof NewSpellingQuiz && _levels.indexOf(quiz) != _levels.size() - 1) {
+
+		}
+		return false;
+	}
+
 	/**
 	 * Generates statistics for all words on all levels in the structure
 	 * [level[word[word, mastered, faulted, failed]]]
@@ -88,8 +95,8 @@ public class SpellingGame implements Serializable {
 
 	/**
 	 * Add new words to the game using the indexes as relative level numbers
-	 * 
-	 * @param gamewords
+	 *
+	 * @param levelWords
 	 *            The words to add as [level[words[word]]]
 	 */
 	public void updateWords(List<List<String>> levelWords, List<String> levelNames) {
@@ -116,5 +123,13 @@ public class SpellingGame implements Serializable {
 		if (currentIndex < _levels.size() - 1) {
 			_currentLevel = _levels.get(++currentIndex);
 		}
+	}
+
+	public List<String> levels() {
+		List<String> names = new ArrayList<>();
+		for (SpellingLevel level : _levels) {
+			names.add(level.name());
+		}
+		return names;
 	}
 }

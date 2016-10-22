@@ -1,10 +1,5 @@
 package voxspell.gui.controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,8 +9,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.BorderPane;
-import voxspell.gamelogic.SpellingGame;
 import voxspell.gui.App;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * <h1>voxspell.gui.controllers.PickLevelController</h1> Controller class responsible for level
@@ -35,12 +35,12 @@ public class PickLevelController implements Initializable {
 	/**
 	 * List of levels as "integers"
 	 */
-	private ArrayList<Integer> _levels = new ArrayList<>();
+	private List<String> _levels = new ArrayList<>();
 
 	/**
 	 * List of levels in human readable form (i.e. 'Level 1, 2, 3, ...')
 	 */
-	private ArrayList<String> _levelsReadable = new ArrayList<>();
+	private List<String> _levelsReadable = new ArrayList<>();
 
 	@FXML
 	private Button playBtn;
@@ -56,9 +56,9 @@ public class PickLevelController implements Initializable {
 	 */
 	@FXML
 	public void goPlay(ActionEvent evt) {
-		int selectedLevel = _levels.get(levelPicker.getSelectionModel().getSelectedIndex());
-		App.inst().chooseLevel(selectedLevel); // get the level chosen in the
-												// ComboBox
+		String selectedLevel = levelPicker.getSelectionModel().getSelectedItem();
+		// get the level chosen in the ComboBox
+		App.inst().chooseLevel(selectedLevel);
 
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -90,10 +90,7 @@ public class PickLevelController implements Initializable {
 	 */
 	private void populate() {
 		// populates the combobox
-		for (int i = 1; i <= SpellingGame.numLevels; i++) {
-			_levels.add(i);
-			_levelsReadable.add("Level " + i);
-		}
+		_levels = App.inst().game().levels();
 		// Display the readable form in the Combo Box
 		_ob = FXCollections.observableArrayList(_levelsReadable);
 	}

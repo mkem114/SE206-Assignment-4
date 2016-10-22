@@ -65,9 +65,6 @@ public class GameController {
 					goLevelComplete();
 				}
 			}
-			if (!_quiz.replayDisabled()) {
-				replayBtn.setDisable(false);
-			}
 			attemptInput.clear();
 			updateProgress();
 		}
@@ -81,28 +78,23 @@ public class GameController {
 	 */
 	@FXML
 	void requestReplay(ActionEvent event) {
-		if (!_quiz.replay()) {
-			replayBtn.setDisable(true);
-		}
-		if (_quiz.replayDisabled()) { // check after first press
-			replayBtn.setDisable(true);
-		}
+		_quiz.replay();
 	}
 
 	/**
 	 * Updates the labels in the scene
 	 */
 	void updateProgress() {
-		currentProgressLabel.setText((int) _quiz.wordNum() - 1 + "/" + _quiz.numWordsToQuiz);
+		currentProgressLabel.setText(_quiz.wordNum() - 1 + "/" + "NUM ORDS TO QUIZ");
 		correctPercentageLabel.setText((int) _quiz.quizAccuracy() + "%");
-		allTimeCorrectPercentageLabel.setText((int) _quiz.levelAccuracy() + "%");
+		allTimeCorrectPercentageLabel.setText((int) _quiz.level().accuracy() + "%");
 	}
 
 	/**
 	 * Updates the level label in the scene Used in initialization
 	 */
 	void updateLevel() {
-		currentLevelLabel.setText(_quiz.levelNum() + "");
+		currentLevelLabel.setText(_quiz.level().name());
 	}
 
 	/**
@@ -122,9 +114,9 @@ public class GameController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(App.class.getResource("views/LevelComplete.fxml"));
-			AnchorPane lvlcomplete = (AnchorPane) loader.load();
+			AnchorPane lvlcomplete = loader.load();
 
-			LevelCompleteController controller = loader.<LevelCompleteController>getController();
+			LevelCompleteController controller = loader.getController();
 			controller.setComplete(_quiz);
 
 			BorderPane border = App.inst().root();
