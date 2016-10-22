@@ -1,6 +1,6 @@
 package voxspell.gui.controllers;
 
-import javafx.collections.FXCollections;
+import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -74,7 +74,7 @@ public class StatisticsMenuController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		System.out.println(App.inst().game().levels());
-		statsLevelPicker.setItems(FXCollections.observableArrayList(App.inst().game().levels()));
+		statsLevelPicker.setItems(new ObservableListWrapper<>(App.inst().game().levels()));
 		statsLevelPicker.getSelectionModel().selectFirst();
 	}
 
