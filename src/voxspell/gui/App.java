@@ -145,6 +145,7 @@ public class App extends Application {
 	 */
 	public void chooseLevel(String lvl) {
 		_game = new SpellingGame();
+		_game.startingLevel(lvl);
 		_save = new SaveGame(_game);
 	}
 

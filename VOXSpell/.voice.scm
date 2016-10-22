@@ -1,3 +1,3 @@
 (Parameter.set 'Duration_Stretch 1.2)
-(voice_kal_diphone)
-(SayText "Hi, my name is KAL")
+(voice_akl_nz_jdt_diphone)
+(SayText "Incorrect. Round over.")
