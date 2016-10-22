@@ -6,12 +6,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import voxspell.gamelogic.QuizWord;
+import voxspell.gamelogic.SpellingLevel;
 import voxspell.gui.App;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -75,6 +78,10 @@ public class StatisticsMenuController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		statsLevelPicker.setItems(new ObservableListWrapper<>(App.inst().game().levels()));
 		statsLevelPicker.getSelectionModel().selectFirst();
+		wordColumn.setCellValueFactory(cellData -> cellData.getValue().wordProperty());
+		masteredColumn.setCellValueFactory(cellData -> cellData.getValue().masteredProperty());
+		faultedColumn.setCellValueFactory(cellData -> cellData.getValue().faultedProperty());
+		failedColumn.setCellValueFactory(cellData -> cellData.getValue().failedProperty());
 		changeLevel();
 	}
 
@@ -83,6 +90,14 @@ public class StatisticsMenuController implements Initializable {
 	 * from dropdown
 	 */
 	public void changeLevel() {
-		accuracyLevel.setText;
+		List<SpellingLevel> stats = App.inst().game().statistics();
+
+		for (SpellingLevel level : stats) {
+			if (level.name().equals(statsLevelPicker.getValue())) {
+				accuracyLevel.setText(level.accuracy()+"%");
+				statsTable.setItems(level.statistics());
+				break;
+			}
+		}
 	}
 }

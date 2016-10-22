@@ -1,6 +1,10 @@
 //Taken from Michael's A2 and lightly modified
 
 package voxspell.gamelogic;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 import java.io.Serializable;
 
@@ -54,6 +58,7 @@ public class QuizWord implements Serializable {
 	/**
 	 * Prints a description of the quiz word object
 	 */
+	@Override
 	public String toString() {
 		if (_word == null) {
 			return "Undefined Word";
@@ -68,7 +73,7 @@ public class QuizWord implements Serializable {
 	public boolean equals(Object o) {
 		try {
 			QuizWord qw = (QuizWord) (o);
-			if (_word == qw.word() && _mastered == qw.timesMastered() && _faulted == qw.timesFaulted()
+			if (_word.equals(qw.word()) && _mastered == qw.timesMastered() && _faulted == qw.timesFaulted()
 					&& _failed == qw.timesFailed()) {
 				return true;
 			}
@@ -143,5 +148,21 @@ public class QuizWord implements Serializable {
 	 */
 	public int timesAttempted() {
 		return _mastered + _faulted + _failed;
+	}
+
+	public StringProperty wordProperty() {
+		return new SimpleStringProperty(word());
+	}
+
+	public StringProperty masteredProperty() {
+		return new SimpleStringProperty(_mastered+"");
+	}
+
+	public StringProperty faultedProperty() {
+		return new SimpleStringProperty(_faulted+"");
+	}
+
+	public StringProperty failedProperty() {
+		return new SimpleStringProperty(_failed+"");
 	}
 }
