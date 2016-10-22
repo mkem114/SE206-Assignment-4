@@ -70,14 +70,14 @@ public class OptionsMenuController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ttsSelect.getItems().addAll(ob);
-		ttsSelect.getSelectionModel().select(TextToSpeech.access().selectedVoiceNum());
+		ttsSelect.getSelectionModel().select(TextToSpeech.access().selectedVoice());
 	}
 
 	/**
 	 * Updates the voice to the newly selected one
 	 */
 	public void changeVoice() {
-		TextToSpeech.access().chooseVoice(ttsSelect.getSelectionModel().getSelectedIndex());
+		TextToSpeech.access().chooseVoice(ttsSelect.getSelectionModel().getSelectedItem());
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class OptionsMenuController implements Initializable {
 	 * Allows preview of the voice
 	 */
 	public void previewVoice() {
-		TextToSpeech.access().speak("Hi, my name is " + TextToSpeech.access().selectedVoice());
+		TextToSpeech.access().introduceVoice();
 	}
 
 }
