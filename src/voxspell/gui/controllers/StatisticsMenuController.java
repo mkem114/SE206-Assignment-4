@@ -75,6 +75,7 @@ public class StatisticsMenuController implements Initializable {
 		for (String level : App.inst().game().levels()) {
 			statsLevelPicker.getItems().add(level);
 		}
+		statsLevelPicker.getSelectionModel().selectFirst();
 	}
 
 	/**

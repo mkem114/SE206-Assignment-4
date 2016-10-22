@@ -37,11 +37,6 @@ public class PickLevelController implements Initializable {
 	 */
 	private List<String> _levels = new ArrayList<>();
 
-	/**
-	 * List of levels in human readable form (i.e. 'Level 1, 2, 3, ...')
-	 */
-	private List<String> _levelsReadable = new ArrayList<>();
-
 	@FXML
 	private Button playBtn;
 
@@ -77,21 +72,12 @@ public class PickLevelController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		populate();
-		levelPicker.getItems().addAll(_ob);
-		levelPicker.getSelectionModel().select(0); // currently defaults to
-													// first one
-
-	}
-
-	/**
-	 * Sets up the arrays needed for the readable and integer forms for the
-	 * ComboBox
-	 */
-	private void populate() {
 		// populates the combobox
 		_levels = App.inst().game().levels();
 		// Display the readable form in the Combo Box
-		_ob = FXCollections.observableArrayList(_levelsReadable);
+		_ob = FXCollections.observableArrayList(_levels);
+		levelPicker.getItems().addAll(_ob);
+		levelPicker.getSelectionModel().selectFirst(); // currently defaults to
+													// first one
 	}
 }
