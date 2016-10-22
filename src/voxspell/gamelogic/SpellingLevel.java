@@ -29,9 +29,9 @@ public class SpellingLevel implements Serializable {
 	/**
 	 * Creates a new spelling level based on a level number and the spelling
 	 * game they belong to
-	 * 
-	 * @param number
-	 *            Level number
+	 *
+	 * @param name
+	 *            Level name
 	 * @param game
 	 *            Spelling game
 	 */
@@ -47,7 +47,7 @@ public class SpellingLevel implements Serializable {
 	 *
 	 * @return Level name
 	 */
-	public String levelName() {
+	public String name() {
 		return _name;
 	}
 
@@ -107,5 +107,9 @@ public class SpellingLevel implements Serializable {
 	 */
 	public void complete() {
 		_game.levelUp();
+	}
+
+	protected List<QuizWord> words() {
+		return _words;
 	}
 }

@@ -57,6 +57,22 @@ public class SpellingGame implements Serializable {
 		return _customCurrentLevel.newQuiz();
 	}
 
+	public void startingLevel(String level) {
+		for (SpellingLevel foundLevel : _levels) {
+			if (foundLevel.equals(level)) {
+				_currentLevel = foundLevel;
+			}
+		}
+	}
+
+	public void customLevel(String level) {
+		for (SpellingLevel foundLevel : _customLevels) {
+			if (foundLevel.equals(level)) {
+				_customCurrentLevel = foundLevel;
+			}
+		}
+	}
+
 	/**
 	 * Generates statistics for all words on all levels in the structure
 	 * [level[word[word, mastered, faulted, failed]]]

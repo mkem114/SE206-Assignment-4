@@ -114,6 +114,7 @@ public class WordListReader {
 		protected Object call() throws Exception {
 			HashSet<String> homophones = readHomophones();
 			List<List<String>> allWords = new ArrayList<>();
+			List<String> levelNames = new ArrayList<>();
 			while (true) {
 				String w = _wordlistFile.readLine();
 				//w = w.trim();
@@ -122,6 +123,7 @@ public class WordListReader {
 				} else {
 					if (w.matches("%Level .*")) {
 						allWords.add(new ArrayList<>());
+						levelNames.add(w.split(" ", 2)[1]);
 					} else if (!w.contains(" ")) {
 						w = w.toLowerCase();
 						if (!homophones.contains(w)) {
@@ -131,7 +133,7 @@ public class WordListReader {
 				}
 			}
 			for (SpellingGame sg : _listeners) {
-				sg.updateWords(allWords);
+				sg.updateWords(allWords, levelNames);
 			}
 
 			return null;
