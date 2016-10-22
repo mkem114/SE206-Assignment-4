@@ -144,7 +144,8 @@ public class App extends Application {
 	 *            The level to start from
 	 */
 	public void chooseLevel(String lvl) {
-		_game.startingLevel(lvl);
+		_game = new SpellingGame();
+		_save = new SaveGame(_game);
 	}
 
 	/**

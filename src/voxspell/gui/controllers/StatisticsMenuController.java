@@ -73,9 +73,9 @@ public class StatisticsMenuController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		System.out.println(App.inst().game().levels());
 		statsLevelPicker.setItems(new ObservableListWrapper<>(App.inst().game().levels()));
 		statsLevelPicker.getSelectionModel().selectFirst();
+		changeLevel();
 	}
 
 	/**
@@ -83,5 +83,6 @@ public class StatisticsMenuController implements Initializable {
 	 * from dropdown
 	 */
 	public void changeLevel() {
+		accuracyLevel.setText;
 	}
 }
