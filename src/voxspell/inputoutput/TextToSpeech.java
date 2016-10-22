@@ -71,7 +71,7 @@ public class TextToSpeech {
 		_niceVoices.put("RAB", "rab_diphone");
 		_niceVoices.put("Auckland", "akl_nz_jdt_diphone");
 		makeVoices();
-		_selectedNiceVoice = "kal_diphone";
+		_selectedNiceVoice = "Auckland";
 		_selectedVoice = _niceVoices.get(_selectedNiceVoice);
 	}
 
