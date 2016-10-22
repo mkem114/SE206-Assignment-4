@@ -132,4 +132,12 @@ public class SpellingGame implements Serializable {
 		}
 		return names;
 	}
+
+	public List<String> customLevels() {
+		List<String> names = new ArrayList<>();
+		for (SpellingLevel level : _customLevels) {
+			names.add(level.name());
+		}
+		return names;
+	}
 }

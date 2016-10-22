@@ -600,3 +600,13 @@ forty
 observation
 responsibility
 wealth
+%Level Space
+shuttle
+mars
+moon
+apollo
+armstrong
+neil
+discovery
+explorer
+challenger
