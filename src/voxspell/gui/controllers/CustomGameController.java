@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -28,6 +29,9 @@ public class CustomGameController {
 
 	@FXML
 	private Label currentLevelLabel;
+
+	@FXML
+	private ProgressBar progress;
 
 	@FXML
 	private Label currentProgressLabel;
@@ -88,6 +92,7 @@ public class CustomGameController {
 		currentProgressLabel.setText(_quiz.wordNum() - 1 + "/" + _quiz.numToQuiz());
 		correctPercentageLabel.setText((int) _quiz.quizAccuracy() + "%");
 		allTimeCorrectPercentageLabel.setText((int) _quiz.level().accuracy() + "%");
+		progress.setProgress(_quiz.wordNum() / (double) _quiz.numToQuiz());
 	}
 
 	/**

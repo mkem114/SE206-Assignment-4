@@ -83,6 +83,7 @@ public class SpellingLevel implements Serializable {
 		int attempted = 0;
 		for (QuizWord word : _words) {
 			correct += word.timesMastered();
+			attempted += word.timesAttempted();
 		}
 		correct *= 100;
 		if (attempted == 0) {

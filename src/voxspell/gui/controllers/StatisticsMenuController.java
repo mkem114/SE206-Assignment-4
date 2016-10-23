@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import voxspell.gamelogic.QuizWord;
 import voxspell.gamelogic.SpellingLevel;
@@ -94,7 +93,7 @@ public class StatisticsMenuController implements Initializable {
 	 */
 	public void changeLevel() {
 		List<SpellingLevel> stats = App.inst().game().statistics();
-
+		
 		for (SpellingLevel level : stats) {
 			if (level.name().equals(statsLevelPicker.getValue())) {
 				accuracyLevel.setText(level.accuracy()+"%");
