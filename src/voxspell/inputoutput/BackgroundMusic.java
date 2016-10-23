@@ -12,6 +12,7 @@ public class BackgroundMusic {
     public static final double VOLUME_LEVEL = 0.1;
     public static final String[] PLAYLIST = {"music.wav"};
     public static final String MUSIC_LOCATION = "./VOXSpell/music/";
+    private boolean playing = false;
     private static BackgroundMusic _instance = null;
     private int _currentIndex;
     private Media _currentSong;
@@ -27,6 +28,15 @@ public class BackgroundMusic {
             _instance = new BackgroundMusic();
         }
         return _instance;
+    }
+
+    public void toggle() {
+        if (playing) {
+            pause();
+        } else {
+            resume();
+        }
+        playing = !playing;
     }
 
     public void pause() {
@@ -46,6 +56,7 @@ public class BackgroundMusic {
             _mediaPlayer.setVolume(VOLUME_LEVEL);
             _mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             _mediaPlayer.play();
+            playing = true;
         } catch (Exception e) {
             //TODO
         }

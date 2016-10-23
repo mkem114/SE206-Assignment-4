@@ -54,6 +54,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
+            <Button fx:id="musicBtn" layoutX="524.0" layoutY="14.0" mnemonicParsing="false" onAction="#musicSwitch" styleClass="menu-button" text="music" />
          </children>
       </AnchorPane>
    </top>

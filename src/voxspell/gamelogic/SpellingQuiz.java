@@ -108,8 +108,7 @@ public abstract class SpellingQuiz implements Serializable {
                 _currentWord.hasMastered();
                 _state = QuizState.MASTERED;
             } else {
-                TextToSpeech.access().speak("Incorrect, try once more ......... " + _currentWord.word() + " ......... "
-                        + _currentWord.word());
+                TextToSpeech.access().speak("Incorrect, try once more... " + _currentWord.word() + ".");
                 _state = QuizState.SECONDGO;
             }
         } else if (_state == QuizState.SECONDGO) {

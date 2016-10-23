@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import voxspell.gui.App;
@@ -33,7 +34,18 @@ public class MainMenuController {
 	@FXML
 	private Button optionsBtn;
 
-	BackgroundMusic music = new BackgroundMusic();
+	@FXML
+	private Button musicBtn;
+
+	BackgroundMusic _music = new BackgroundMusic();
+
+	Image imageMusic = new Image(getClass().getResourceAsStream("headphones-2x.png"));
+	musicBtn.setGraphic(new ImageView(imageDecline));
+
+	@FXML
+	public void musicSwitch(ActionEvent event){
+		_music.toggle();
+	}
 
 	/**
 	 * Press to start a quiz
@@ -44,6 +56,7 @@ public class MainMenuController {
 	@FXML
 	public void goPlay(ActionEvent evt) {
 		try {
+			_music.pause();
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(App.class.getResource("views/Game.fxml"));
 			AnchorPane game = loader.load();
@@ -66,6 +79,7 @@ public class MainMenuController {
 	@FXML
 	public void goOptions(ActionEvent evt) {
 		try {
+			_music.pause();
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(App.class.getResource("views/OptionsMenu.fxml"));
 			AnchorPane options = loader.load();
@@ -77,30 +91,12 @@ public class MainMenuController {
 		}
 	}
 
+	@FXML
 	public void goCustom(ActionEvent evt) {
 		try {
+			_music.pause();
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(App.class.getResource("views/PickCustomLevel.fxml"));
-			AnchorPane review = loader.load();
-
-			BorderPane border = App.inst().root();
-			border.setCenter(review);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Press to start a review quiz (goes into review level select)
-	 * 
-	 * @param evt
-	 *            On pressing the Review button
-	 */
-	@FXML
-	public void goReview(ActionEvent evt) {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("views/ReviewMenu.fxml"));
 			AnchorPane review = loader.load();
 
 			BorderPane border = App.inst().root();
@@ -119,6 +115,7 @@ public class MainMenuController {
 	@FXML
 	public void goStatistics(ActionEvent evt) {
 		try {
+			_music.pause();
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(App.class.getResource("views/StatisticsMenu.fxml"));
 			AnchorPane stats = loader.load();
