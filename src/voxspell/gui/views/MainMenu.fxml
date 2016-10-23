@@ -30,7 +30,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="reviewBtn" mnemonicParsing="false" onAction="#goReview" prefHeight="50.0" prefWidth="150.0" styleClass="main-menu-button" text="Custom" />
+                  <Button fx:id="customBtn" mnemonicParsing="false" onAction="#goCustom" prefHeight="50.0" prefWidth="150.0" styleClass="main-menu-button" text="Custom" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">

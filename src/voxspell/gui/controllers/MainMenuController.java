@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import voxspell.gui.App;
+import voxspell.inputoutput.BackgroundMusic;
 
 /**
  * <h1>voxspell.gui.controllers.MainMenuController</h1> Controller class responsible to be the "home
@@ -24,13 +25,15 @@ public class MainMenuController {
 	private Button playBtn;
 
 	@FXML
-	private Button reviewBtn;
+	private Button customBtn;
 
 	@FXML
 	private Button statisticsBtn;
 
 	@FXML
 	private Button optionsBtn;
+
+	BackgroundMusic music = new BackgroundMusic();
 
 	/**
 	 * Press to start a quiz
@@ -77,7 +80,7 @@ public class MainMenuController {
 	public void goCustom(ActionEvent evt) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("views/CustomPickLevel.fxml"));
+			loader.setLocation(App.class.getResource("views/PickCustomLevel.fxml"));
 			AnchorPane review = loader.load();
 
 			BorderPane border = App.inst().root();

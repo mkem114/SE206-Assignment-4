@@ -164,7 +164,7 @@ public abstract class SpellingQuiz implements Serializable {
             // TODO fix correct and stuff being said or double up of word to
             // spell
             return true;
-            // TODO merge with thing into next word funciton
+            // TODO merge with thing into next word function
         }
     }
 

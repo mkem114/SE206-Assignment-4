@@ -39,7 +39,6 @@ public class App extends Application {
 	 * File name of the file with the list of words to load
 	 */
 	private static App _instance;
-	private BackgroundMusic _background;
 	private BorderPane _root = new BorderPane();
 	private SaveGame _save;
 	private SpellingGame _game;
@@ -87,7 +86,6 @@ public class App extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		_background = new voxspell.inputoutput.BackgroundMusic();
 		_instance = this;
 		this._primaryStage = primaryStage;
 		this._primaryStage.setTitle("VOXSpell");

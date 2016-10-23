@@ -103,6 +103,17 @@ public class SpellingLevel implements Serializable {
 	}
 
 	/**
+	 * Starts a new spelling quiz on this level
+	 *
+	 * @return The new spelling quiz
+	 */
+	public SpellingQuiz customQuiz() {
+		SpellingQuiz csq = new CustomSpellingQuiz(this);
+		_quizzes.add(csq);
+		return csq;
+	}
+
+	/**
 	 * This level has been completed by the user
 	 */
 	public void complete() {

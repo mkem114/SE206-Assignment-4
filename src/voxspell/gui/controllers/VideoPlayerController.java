@@ -27,7 +27,7 @@ import voxspell.gui.App;
  */
 public class VideoPlayerController implements Initializable {
 	// The url is set to be "reward.mp4" at the moment
-	private String url = new File("reward.mp4").toURI().toString();
+	private String url = new File("VOXSpell/reward.mp4").toURI().toString();
 	private Media media = new Media(url);
 	private boolean isPlaying = false;
 	// keep a reference to the quiz so user can return to the end of level

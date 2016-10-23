@@ -65,6 +65,16 @@ public class WordListReader {
 		_listeners = new LinkedList<>();
 	}
 
+	public WordListReader(File wordlist) {
+		try {
+			_wordlistFile = new BufferedReader(new FileReader(wordlist.getAbsolutePath()));
+		} catch (Exception e) {
+			//TODO
+			e.printStackTrace();
+		}
+		_listeners = new LinkedList<>();
+	}
+
 	/**
 	 * Starts the reading process
 	 * 
