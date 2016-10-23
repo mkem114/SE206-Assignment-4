@@ -85,7 +85,7 @@ public class CustomGameController {
 	 * Updates the labels in the scene
 	 */
 	void updateProgress() {
-		currentProgressLabel.setText(_quiz.wordNum() - 1 + "/" + "NUM WORDS TO QUIZ");
+		currentProgressLabel.setText(_quiz.wordNum() - 1 + "/" + _quiz.numToQuiz());
 		correctPercentageLabel.setText((int) _quiz.quizAccuracy() + "%");
 		allTimeCorrectPercentageLabel.setText((int) _quiz.level().accuracy() + "%");
 	}

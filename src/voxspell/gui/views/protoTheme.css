@@ -24,6 +24,14 @@
     -fx-background-color: #33cc33;
     -fx-font-size: 16pt;
 }
+.green-progress-bar .bar {
+        -fx-background-color: green;
+}
+.progress-bar {
+  -fx-progress-color: green;
+  -fx-text-box-border: forestgreen;
+  -fx-control-inner-background: palegreen;
+}
 
 .main-menu-button:hover {
 	-fx-background-color: #5cd65c;

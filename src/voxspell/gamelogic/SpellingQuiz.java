@@ -16,7 +16,7 @@ import java.util.List;
 public abstract class SpellingQuiz implements Serializable {
     public static final double GUARANTEED_LEVEL_UP = 1.0;
     public static final double REWARD = 0.9;
-    public static final double numWordsToLevel = 9; // not used
+    public static final double numWordsToLevel = 8; // not used
     /**
      * Generated serialization ID
      */
@@ -169,16 +169,6 @@ public abstract class SpellingQuiz implements Serializable {
     }
 
     /**
-     * Gets the size of the words to be quizzed in case there are fewer than ten
-     * words
-     *
-     * @return the number of words in a quiz
-     */
-    public int actualSize() {
-        return _quizWords.size();
-    }
-
-    /**
      * Speaks the word that is quizzed again in case the user presses the
      * "replay" button.
      *
@@ -196,5 +186,9 @@ public abstract class SpellingQuiz implements Serializable {
      */
     public enum QuizState {
         FINISHED, FAILED, FAULTED, MASTERED, NEW, SECONDGO
+    }
+
+    public int numToQuiz() {
+        return _quizWords.size();
     }
 }
