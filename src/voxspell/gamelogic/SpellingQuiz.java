@@ -16,7 +16,6 @@ import java.util.List;
 public abstract class SpellingQuiz implements Serializable {
     public static final double GUARANTEED_LEVEL_UP = 1.0;
     public static final double REWARD = 0.9;
-    public static final double numWordsToLevel = 8; // not used
     /**
      * Generated serialization ID
      */
@@ -140,8 +139,7 @@ public abstract class SpellingQuiz implements Serializable {
             } else {
                 TextToSpeech.access().speak("Correct. Round over.");
             }
-            if (_correct >= numWordsToLevel) {
-
+            if (level().allWordsMastered() || quizAccuracy() > GUARANTEED_LEVEL_UP) {
                 _level.complete();
             }
 
@@ -177,6 +175,10 @@ public abstract class SpellingQuiz implements Serializable {
         TextToSpeech.access().speak(_currentWord.word());
     }
 
+    public int numToQuiz() {
+        return _quizWords.size();
+    }
+
     /**
      * <h1>QuizState</h1> The current state of the quiz
      *
@@ -185,9 +187,5 @@ public abstract class SpellingQuiz implements Serializable {
      */
     public enum QuizState {
         FINISHED, FAILED, FAULTED, MASTERED, NEW, SECONDGO
-    }
-
-    public int numToQuiz() {
-        return _quizWords.size();
     }
 }

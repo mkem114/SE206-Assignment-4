@@ -120,6 +120,15 @@ public class SpellingLevel implements Serializable {
 		_game.levelUp();
 	}
 
+	public boolean allWordsMastered() {
+		for (QuizWord word : _words) {
+			if (word.timesMastered() == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	protected List<QuizWord> words() {
 		return _words;
 	}

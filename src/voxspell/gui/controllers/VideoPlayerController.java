@@ -1,10 +1,5 @@
 package voxspell.gui.controllers;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +12,11 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 import voxspell.gamelogic.SpellingQuiz;
 import voxspell.gui.App;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * <h1>voxspell.gui.controllers.VideoPlayerController</h1> Controller class responsible for showing the
@@ -113,7 +113,7 @@ public class VideoPlayerController implements Initializable {
 			loader.setLocation(App.class.getResource("views/LevelComplete.fxml"));
 			AnchorPane lvlcomplete = loader.load();
 			if (_quiz != null) {
-				LevelCompleteController controller = loader.<LevelCompleteController>getController();
+				LevelCompleteController controller = loader.getController();
 				controller.setComplete(_quiz);
 			}
 			BorderPane border = App.inst().root();
