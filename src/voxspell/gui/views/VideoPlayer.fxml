@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.media.MediaView?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@protoTheme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="voxspell.gui.controllers.VideoPlayerController">
+   <children>
+      <ButtonBar layoutX="451.0" layoutY="355.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <buttons>
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" styleClass="menu-button" text="Back" />
+        </buttons>
+      </ButtonBar>
+      <FlowPane alignment="CENTER" hgap="20.0" layoutX="173.0" layoutY="257.0" prefHeight="40.0" prefWidth="580.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <Button fx:id="rewindBtn" mnemonicParsing="false" onAction="#rewind" prefHeight="24.0" prefWidth="85.0" styleClass="menu-button" text="&lt;5&lt;" />
+            <Button fx:id="playPauseBtn" mnemonicParsing="false" onAction="#playOrPause" prefHeight="24.0" prefWidth="85.0" styleClass="menu-button" text="Play" />
+            <Button fx:id="stopBtn" mnemonicParsing="false" onAction="#stop" prefHeight="24.0" prefWidth="88.0" styleClass="menu-button" text="Stop" />
+            <Button fx:id="forwardBtn" mnemonicParsing="false" onAction="#fastForward" prefHeight="24.0" prefWidth="85.0" styleClass="menu-button" text="&gt;5&gt;" />
+         </children>
+      </FlowPane>
+      <MediaView fx:id="mediaView" fitHeight="300.0" fitWidth="600.0" layoutX="200.0" layoutY="63.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>

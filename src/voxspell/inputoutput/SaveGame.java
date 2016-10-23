@@ -29,7 +29,7 @@ public class SaveGame {
 	/**
 	 * Default save file name
 	 */
-	public static final String DEFAULTFILENAME = "spelling";
+	public static final String DEFAULTFILENAME = "./VOXSpell/.spelling";
 	/**
 	 * Default file extension
 	 */

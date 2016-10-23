@@ -1,8 +1,5 @@
 package voxspell.gui;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,6 +10,9 @@ import javafx.stage.Stage;
 import voxspell.gamelogic.SpellingGame;
 import voxspell.inputoutput.BackgroundMusic;
 import voxspell.inputoutput.SaveGame;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 // REFERENCE: The implementation technique was inspired by this website:
 // http://javajdk.net/tutorial/multiple-javafx-scenes-sharing-one-menubar/
@@ -38,26 +38,34 @@ public class App extends Application {
 	/**
 	 * File name of the file with the list of words to load
 	 */
-	public static final String FILENAME = "nzcer-wordlist.txt";
-	private BackgroundMusic _background;
 	private static App _instance;
 	private BorderPane _root = new BorderPane();
-	private SpellingGame _game;
 	private SaveGame _save;
+	private SpellingGame _game;
 	private Stage _primaryStage;
 
 	/**
 	 * Access the singleton instance
 	 * 
-	 * @return voxspell.gui.voxspell.gui.App instance
+	 * @return voxspell.gui.App instance
 	 */
 	public static App inst() {
 		return _instance;
 	}
 
 	/**
+	 * The entry point of the program
+	 *
+	 * @param args
+	 *            Ignored, whatever arguments the application is started with
+	 */
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	/**
 	 * Access to the primary stage
-	 * 
+	 *
 	 * @return Primary stage
 	 */
 	public BorderPane root() {
@@ -66,7 +74,7 @@ public class App extends Application {
 
 	/**
 	 * Access to the game instance
-	 * 
+	 *
 	 * @return Game instance
 	 */
 	public SpellingGame game() {
@@ -74,20 +82,19 @@ public class App extends Application {
 	}
 
 	/**
-	 * Initialise the voxspell.gui.voxspell.gui.App on application start
+	 * Initialise the voxspell.gui.App on application start
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		_background = new voxspell.inputoutput.BackgroundMusic();
 		_instance = this;
 		this._primaryStage = primaryStage;
-		this._primaryStage.setTitle("VOXSpell BETA");
+		this._primaryStage.setTitle("VOXSpell");
 		setLayout();
 	}
 
 	/**
 	 * Loads the last saved game
-	 * 
+	 *
 	 * @return If the loading was successful
 	 */
 	// loads the game
@@ -117,7 +124,7 @@ public class App extends Application {
 	public void resetGame() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(App.class.getResource("PickLevel.fxml"));
+			loader.setLocation(getClass().getResource("views/PickLevel.fxml"));
 			AnchorPane pickLevel;
 			pickLevel = loader.load();
 			_root.setCenter(pickLevel);
@@ -130,12 +137,13 @@ public class App extends Application {
 
 	/**
 	 * Creates a new game with a selected starting level
-	 * 
+	 *
 	 * @param lvl
 	 *            The level to start from
 	 */
-	public void chooseLevel(int lvl) {
-		_game = new SpellingGame(FILENAME, lvl);
+	public void chooseLevel(String lvl) {
+		_game = new SpellingGame();
+		_game.startingLevel(lvl);
 		_save = new SaveGame(_game);
 	}
 
@@ -145,38 +153,33 @@ public class App extends Application {
 	public void setLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("HomePane.fxml"));
+
 			if (loadGame() && _game != null) { // if there's a save game then go
 												// directly to the main menu
-				loader.setLocation(getClass().getResource("MainMenu.fxml"));
+				loader.setLocation(getClass().getResource("views/MainMenu.fxml"));
 				BorderPane menu = loader.load();
 				_root.setCenter(menu);
 			} else { // otherwise get the user to select the level they want to
 						// start at
-				loader.setLocation(getClass().getResource("PickLevel.fxml"));
+				loader.setLocation(getClass().getResource("views/PickLevel.fxml"));
 				AnchorPane pickLevel = loader.load();
 				_root.setCenter(pickLevel);
 			}
 
+			// Sets window size
 			Scene scene1 = new Scene(_root, 600, 400);
-			scene1.getStylesheets().add(getClass().getResource("protoTheme.css").toExternalForm());
-			_primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("VOX.png")));
+			// Set styling
+			scene1.getStylesheets().add(getClass().getResource("views/protoTheme.css").toExternalForm());
+			// Sets the icon
+			_primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("views/VOX2.png")));
+			// Starts application
 			_primaryStage.setScene(scene1);
+			// Make the application un-resizable
 			_primaryStage.setResizable(false);
 			_primaryStage.sizeToScene(); // prevents border from setResizable
 			_primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	/**
-	 * The entry point of the program
-	 * 
-	 * @param args
-	 *            Ignored, whatever arguments the application is started with
-	 */
-	public static void main(String[] args) {
-		launch(args);
 	}
 }

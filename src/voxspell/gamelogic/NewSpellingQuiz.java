@@ -31,7 +31,7 @@ public class NewSpellingQuiz extends SpellingQuiz {
 	 */
 	@Override
 	protected List<QuizWord> getWords() {
-		return levelWords();
+		return level().words();
 	}
 
 }

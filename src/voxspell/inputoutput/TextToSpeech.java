@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import javafx.concurrent.Task;
 
@@ -41,14 +43,16 @@ public class TextToSpeech {
 	 * The location of festival in UG4
 	 */
 	public static final String festivalLocation = "/usr/share/festival/voices/english";
-	public static final String scmStr = "./.voice.scm";
+	public static final String scmStr = "./VOXSpell/.voice.scm";
 
 	private static TextToSpeech _instance = null;
 	private static OS _os;
 
 	private Thread lastSpeech;
-	private int _selectedVoiceInt;
+	private String _selectedVoice;
+	private String _selectedNiceVoice;
 	private ArrayList<String> _voices = new ArrayList<>();
+	private HashMap<String, String> _niceVoices = new HashMap<>();
 
 	/**
 	 * This constructor determines the operating system and picks the default
@@ -63,8 +67,16 @@ public class TextToSpeech {
 		} else {
 			_os = OS.WINDOWS;
 		}
+		_niceVoices.put("KAL", "kal_diphone");
+		_niceVoices.put("RAB", "rab_diphone");
+		_niceVoices.put("Auckland", "akl_nz_jdt_diphone");
 		makeVoices();
-		chooseVoice(0);
+		_selectedNiceVoice = "Auckland";
+		_selectedVoice = _niceVoices.get(_selectedNiceVoice);
+	}
+
+	public void introduceVoice() {
+		speak("Hi, my name is " + _selectedNiceVoice);
 	}
 
 	/**
@@ -72,17 +84,8 @@ public class TextToSpeech {
 	 * 
 	 * @return ArrayList of voice names to choose from
 	 */
-	public ArrayList<String> voices() {
-		return _voices;
-	}
-
-	/**
-	 * Which number in the list of voice names is the selected voice
-	 * 
-	 * @return Number of the selected voice
-	 */
-	public int selectedVoiceNum() {
-		return _selectedVoiceInt;
+	public List<String> voices() {
+		return new ArrayList<>(_niceVoices.keySet());
 	}
 
 	/**
@@ -91,8 +94,9 @@ public class TextToSpeech {
 	 * @param index
 	 *            Number along the list to choose
 	 */
-	public void chooseVoice(int index) {
-		_selectedVoiceInt = index;
+	public void chooseVoice(String niceVoice) {
+		_selectedNiceVoice = niceVoice;
+		_selectedVoice = _niceVoices.get(niceVoice);
 	}
 
 	/**
@@ -101,7 +105,7 @@ public class TextToSpeech {
 	 * @return Voice name
 	 */
 	public String selectedVoice() {
-		return _voices.get(_selectedVoiceInt);
+		return _selectedNiceVoice;
 	}
 
 	/**
@@ -124,7 +128,7 @@ public class TextToSpeech {
 	public void speak(String speak) {
 		String cmd = null;
 		if (_os == OS.OSX) {
-			cmd = "say -v " + _voices.get(_selectedVoiceInt) + " " + speak;
+			cmd = "say -v " + _selectedVoice + " " + speak;
 		} else if (_os == OS.LINUX) {
 			generateScheme(speak);
 			cmd = "festival -b " + scmStr;
@@ -163,7 +167,7 @@ public class TextToSpeech {
 		try {
 			PrintWriter writer = new PrintWriter(scm);
 			writer.println("(Parameter.set 'Duration_Stretch 1.2)");
-			writer.println("(voice_" + selectedVoice() + ")");
+			writer.println("(voice_" + _selectedVoice + ")");
 			writer.println("(SayText \"" + speak + "\")");
 			writer.close();
 		} catch (FileNotFoundException e) {
@@ -202,13 +206,6 @@ public class TextToSpeech {
 				BufferedReader out = new BufferedReader(new InputStreamReader(stdout));
 				String line = null;
 				while ((line = out.readLine()) != null) {
-					if (line.equals("kal_diphone")) {
-						line = "KAL";
-					} else if (line.equals("rab_diphone")) {
-						line = "RAB";
-					} else if (line.equals("akl_diphone")) {
-						line = "Auckland";
-					}
 					_voices.add(line);
 				}
 			} catch (IOException e) {

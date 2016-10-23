@@ -4,17 +4,14 @@
 
 package voxspell.inputoutput;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import javafx.concurrent.Task;
+import voxspell.gamelogic.SpellingGame;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-
-import javafx.concurrent.Task;
-import voxspell.gamelogic.SpellingGame;
 
 /**
  * <h1>WordListReader</h1> This class reads words in to a SpellingGame in
@@ -33,8 +30,8 @@ public class WordListReader {
 	/**
 	 * Default file name to read words from
 	 */
-	public static final String DEFAULTWORDLISTFILENAME = "nzcer-wordlist.txt";
-	public static final String DEFAULTHOMOPHONESFILENAME = "homophones.txt";
+	public static final String DEFAULTWORDLISTFILENAME = "defaultWordlist.txt";
+	public static final String DEFAULTHOMOPHONESFILENAME = "./VOXSpell/homophones.txt";
 	private List<SpellingGame> _listeners;
 	private BufferedReader _wordlistFile;
 	private BufferedReader _homophonesFile;
@@ -58,8 +55,23 @@ public class WordListReader {
 	 *             Thrown when the file is in the wrong place or non-existing
 	 */
 	public WordListReader(String filename) throws FileNotFoundException {
-		_wordlistFile = new BufferedReader(new FileReader(filename));
-		_homophonesFile = new BufferedReader(new FileReader(DEFAULTHOMOPHONESFILENAME));
+        // The default is in the same package so a different way to read is needed
+        if (filename.equals(DEFAULTWORDLISTFILENAME)) {
+            _wordlistFile = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filename)));
+        } else {
+            _wordlistFile = new BufferedReader(new FileReader(filename));
+        }
+        _homophonesFile = new BufferedReader(new FileReader(DEFAULTHOMOPHONESFILENAME));
+		_listeners = new LinkedList<>();
+	}
+
+	public WordListReader(File wordlist) {
+		try {
+			_wordlistFile = new BufferedReader(new FileReader(wordlist.getAbsolutePath()));
+		} catch (Exception e) {
+			//TODO
+			e.printStackTrace();
+		}
 		_listeners = new LinkedList<>();
 	}
 
@@ -112,6 +124,7 @@ public class WordListReader {
 		protected Object call() throws Exception {
 			HashSet<String> homophones = readHomophones();
 			List<List<String>> allWords = new ArrayList<>();
+			List<String> levelNames = new ArrayList<>();
 			while (true) {
 				String w = _wordlistFile.readLine();
 				//w = w.trim();
@@ -120,6 +133,7 @@ public class WordListReader {
 				} else {
 					if (w.matches("%Level .*")) {
 						allWords.add(new ArrayList<>());
+						levelNames.add(w.split(" ", 2)[1]);
 					} else if (!w.contains(" ")) {
 						w = w.toLowerCase();
 						if (!homophones.contains(w)) {
@@ -129,7 +143,7 @@ public class WordListReader {
 				}
 			}
 			for (SpellingGame sg : _listeners) {
-				sg.updateWords(allWords);
+				sg.updateWords(allWords, levelNames);
 			}
 
 			return null;

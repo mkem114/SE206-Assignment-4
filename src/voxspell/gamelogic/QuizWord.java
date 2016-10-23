@@ -1,6 +1,10 @@
 //Taken from Michael's A2 and lightly modified
 
 package voxspell.gamelogic;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 import java.io.Serializable;
 
@@ -20,7 +24,6 @@ public class QuizWord implements Serializable {
 	private int _mastered;
 	private int _faulted;
 	private int _failed;
-	private boolean _upForReview;
 
 	/**
 	 * Creates a new quiz word based on a word by assuming it has no game
@@ -31,7 +34,6 @@ public class QuizWord implements Serializable {
 	 */
 	public QuizWord(String word) {
 		this(word, 0, 0, 0);
-		_upForReview = false;
 	}
 
 	/**
@@ -51,12 +53,12 @@ public class QuizWord implements Serializable {
 		_mastered = mastered;
 		_faulted = faulted;
 		_failed = failed;
-		_upForReview = false;
 	}
 
 	/**
 	 * Prints a description of the quiz word object
 	 */
+	@Override
 	public String toString() {
 		if (_word == null) {
 			return "Undefined Word";
@@ -71,23 +73,14 @@ public class QuizWord implements Serializable {
 	public boolean equals(Object o) {
 		try {
 			QuizWord qw = (QuizWord) (o);
-			if (_word == qw.word() && _mastered == qw.timesMastered() && _faulted == qw.timesFaulted()
-					&& _failed == qw.timesFailed() && _upForReview == qw.toBeReviewed()) {
+			if (_word.equals(qw.word()) && _mastered == qw.timesMastered() && _faulted == qw.timesFaulted()
+					&& _failed == qw.timesFailed()) {
 				return true;
 			}
 		} catch (ClassCastException e) {
 			return false;
 		}
 		return false;
-	}
-
-	/**
-	 * If the word will appear in review mode then true is returned
-	 * 
-	 * @return Whether it will be in review mode
-	 */
-	public boolean toBeReviewed() {
-		return _upForReview;
 	}
 
 	/**
@@ -113,10 +106,6 @@ public class QuizWord implements Serializable {
 	 */
 	public void hasMastered() {
 		_mastered++;
-		if (_upForReview) {
-			_upForReview = false; // if you get it right in play you dont have
-									// to review
-		}
 	}
 
 	/**
@@ -150,7 +139,6 @@ public class QuizWord implements Serializable {
 	 */
 	public void hasFailed() {
 		_failed++;
-		_upForReview = true;
 	}
 
 	/**
@@ -160,5 +148,21 @@ public class QuizWord implements Serializable {
 	 */
 	public int timesAttempted() {
 		return _mastered + _faulted + _failed;
+	}
+
+	public StringProperty wordProperty() {
+		return new SimpleStringProperty(word());
+	}
+
+	public StringProperty masteredProperty() {
+		return new SimpleStringProperty(_mastered+"");
+	}
+
+	public StringProperty faultedProperty() {
+		return new SimpleStringProperty(_faulted+"");
+	}
+
+	public StringProperty failedProperty() {
+		return new SimpleStringProperty(_failed+"");
 	}
 }

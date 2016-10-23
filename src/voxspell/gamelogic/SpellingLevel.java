@@ -1,5 +1,8 @@
 package voxspell.gamelogic;
 
+import com.sun.javafx.collections.ObservableListWrapper;
+import javafx.collections.ObservableList;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +21,7 @@ public class SpellingLevel implements Serializable {
 	 * Serializing ID re: SpellingGame
 	 */
 	private static final long serialVersionUID = -9174985624580121154L;
-	private int _number;
+	private String _name;
 	private List<QuizWord> _words;
 	private List<SpellingQuiz> _quizzes;
 	private SpellingGame _game;
@@ -26,26 +29,26 @@ public class SpellingLevel implements Serializable {
 	/**
 	 * Creates a new spelling level based on a level number and the spelling
 	 * game they belong to
-	 * 
-	 * @param number
-	 *            Level number
+	 *
+	 * @param name
+	 *            Level name
 	 * @param game
 	 *            Spelling game
 	 */
-	public SpellingLevel(int number, SpellingGame game) {
-		_words = new ArrayList<QuizWord>();
-		_quizzes = new ArrayList<SpellingQuiz>();
-		_number = number;
+	public SpellingLevel(String name, SpellingGame game) {
+		_words = new ArrayList<>();
+		_quizzes = new ArrayList<>();
+		_name = name;
 		_game = game;
 	}
 
 	/**
-	 * Number of the level
-	 * 
-	 * @return Level number
+	 * Name of the level
+	 *
+	 * @return Level name
 	 */
-	public int levelNum() {
-		return _number;
+	public String name() {
+		return _name;
 	}
 
 	/**
@@ -65,17 +68,8 @@ public class SpellingLevel implements Serializable {
 	 * 
 	 * @return A list of statistics going [word, mastered, faulted, failed]
 	 */
-	public ArrayList<ArrayList<String>> statistics() {
-		ArrayList<ArrayList<String>> stats = new ArrayList<ArrayList<String>>();
-		for (int i = 0; i < _words.size(); i++) {
-			QuizWord word = _words.get(i);
-			stats.add(new ArrayList<String>());
-			stats.get(i).add(word.word());
-			stats.get(i).add(Integer.toString(word.timesMastered()));
-			stats.get(i).add(Integer.toString(word.timesFaulted()));
-			stats.get(i).add(Integer.toString(word.timesFailed()));
-		}
-		return stats;
+	public ObservableList<QuizWord> statistics() {
+		return new ObservableListWrapper<>(_words);
 	}
 
 	/**
@@ -85,18 +79,16 @@ public class SpellingLevel implements Serializable {
 	 * @return Level accuracy as a percentage
 	 */
 	public double accuracy() {
-		int incorrect = 0;
+		int correct = 0;
 		int attempted = 0;
 		for (QuizWord word : _words) {
-			incorrect += word.timesFailed();
-			incorrect += word.timesFaulted();
-			attempted += word.timesAttempted();
+			correct += word.timesMastered();
 		}
-		incorrect *= 100;
+		correct *= 100;
 		if (attempted == 0) {
 			return 0;
 		}
-		return (100 - incorrect / attempted);
+		return (correct / attempted);
 	}
 
 	/**
@@ -111,23 +103,14 @@ public class SpellingLevel implements Serializable {
 	}
 
 	/**
-	 * Starts a new review quiz on this level
-	 * 
-	 * @return The review quiz
+	 * Starts a new spelling quiz on this level
+	 *
+	 * @return The new spelling quiz
 	 */
-	public SpellingQuiz reviewQuiz() {
-		_quizzes.add(new ReviewSpellingQuiz(this));
-		return _quizzes.get(_quizzes.size() - 1);
-	}
-
-	/**
-	 * The list of words on the level
-	 * 
-	 * @return List of quiz words on the level
-	 */
-	public List<QuizWord> words() {
-		return _words;
-
+	public SpellingQuiz customQuiz() {
+		SpellingQuiz csq = new CustomSpellingQuiz(this);
+		_quizzes.add(csq);
+		return csq;
 	}
 
 	/**
@@ -135,5 +118,9 @@ public class SpellingLevel implements Serializable {
 	 */
 	public void complete() {
 		_game.levelUp();
+	}
+
+	protected List<QuizWord> words() {
+		return _words;
 	}
 }
