@@ -71,7 +71,9 @@ public class SpellingGame implements Serializable {
 	}
 
 	public void customLevel(String level) {
-		for (SpellingLevel foundLevel : _customLevels) {
+		List<SpellingLevel> allLevel = new ArrayList<>(_customLevels);
+		allLevel.addAll(_levels);
+		for (SpellingLevel foundLevel : allLevel) {
 			if (foundLevel.name().equals(level)) {
 				_customCurrentLevel = foundLevel;
 			}
