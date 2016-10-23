@@ -1,16 +1,17 @@
 package voxspell.gui.controllers;
 
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import voxspell.gui.App;
 import voxspell.inputoutput.BackgroundMusic;
+
+import java.io.IOException;
 
 /**
  * <h1>voxspell.gui.controllers.MainMenuController</h1> Controller class responsible to be the "home
@@ -21,6 +22,8 @@ import voxspell.inputoutput.BackgroundMusic;
  *
  */
 public class MainMenuController {
+
+	BackgroundMusic _music;
 
 	@FXML
 	private Button playBtn;
@@ -36,11 +39,6 @@ public class MainMenuController {
 
 	@FXML
 	private Button musicBtn;
-
-	BackgroundMusic _music = new BackgroundMusic();
-
-	Image imageMusic = new Image(getClass().getResourceAsStream("headphones-2x.png"));
-	musicBtn.setGraphic(new ImageView(imageDecline));
 
 	@FXML
 	public void musicSwitch(ActionEvent event){
@@ -127,4 +125,10 @@ public class MainMenuController {
 		}
 	}
 
+	@FXML
+	public void initialize() {
+		_music = new BackgroundMusic();
+		Image imageMusic = new Image(App.class.getResourceAsStream("views/headphones-2x.png"));
+		musicBtn.setGraphic(new ImageView(imageMusic));
+	}
 }
