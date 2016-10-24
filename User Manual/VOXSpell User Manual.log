@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  25 OCT 2016 00:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  25 OCT 2016 01:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -295,25 +295,33 @@ line 63.
 (pdftex.def)             Requested size: 390.0pt x 257.83832pt.
  [6
 
- <./Figures/Main Menu/MainMenuGeneral.png>] [7
+ <./Figures/Main Menu/MainMenuGeneral.png>]
+<Figures/Options/OptionsGeneral.png, id=33, 601.24625pt x 400.49625pt>
+File: Figures/Options/OptionsGeneral.png Graphic file (type png)
 
-] (./VOXSpell User Manual.aux) ) 
+<use Figures/Options/OptionsGeneral.png>
+Package pdftex.def Info: Figures/Options/OptionsGeneral.png used on input line 
+82.
+(pdftex.def)             Requested size: 390.0pt x 259.79391pt.
+ [7
+
+ <./Figures/Options/OptionsGeneral.png>] [8] (./VOXSpell User Manual.aux) ) 
 Here is how much of TeX's memory you used:
- 2741 strings out of 494953
- 36806 string characters out of 6180976
- 91822 words of memory out of 5000000
- 5977 multiletter control sequences out of 15000+600000
+ 2750 strings out of 494953
+ 37036 string characters out of 6180976
+ 91846 words of memory out of 5000000
+ 5984 multiletter control sequences out of 15000+600000
  12403 words of font info for 48 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,6n,28p,481b,232s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr17.pfb>
-Output written on "VOXSpell User Manual.pdf" (8 pages, 110759 bytes).
+</us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on "VOXSpell User Manual.pdf" (9 pages, 124767 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
- 29 compressed objects within 1 object stream
+ 52 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

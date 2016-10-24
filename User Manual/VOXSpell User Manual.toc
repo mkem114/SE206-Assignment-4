@@ -12,4 +12,4 @@
 \contentsline {subsection}{\numberline {7.2}Sorting}{7}
 \contentsline {section}{\numberline {8}Changing Options}{7}
 \contentsline {subsection}{\numberline {8.1}Voices}{7}
-\contentsline {subsection}{\numberline {8.2}Reset}{7}
+\contentsline {subsection}{\numberline {8.2}Reset}{8}
