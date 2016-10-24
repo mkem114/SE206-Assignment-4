@@ -60,6 +60,9 @@ public class NumGenerator implements Serializable {
 			// TODO Throw an exception that a unique set cannot be given
 		}
 		Random rand = new Random();
+		if (high == low) {
+			return low;
+		}
 		return rand.nextInt(high - low) + low;
 	}
 }

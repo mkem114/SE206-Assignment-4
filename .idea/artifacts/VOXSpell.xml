@@ -23,7 +23,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
         </element>
       </element>
-      <element id="file-copy" path="$PROJECT_DIR$/READEME.txt" />
+      <element id="file-copy" path="$PROJECT_DIR$/README.txt" />
       <element id="directory" name="VOXSpell">
         <element id="directory" name="music">
           <element id="dir-copy" path="$PROJECT_DIR$/VOXSpell/music" />

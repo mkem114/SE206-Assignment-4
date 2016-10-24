@@ -2,6 +2,9 @@ README
 
 AUTHOR: mkem114
 
+NOTES TO MARKER:
+- Only on the unity desktop manager in ubuntu 14.04 does the text randomly change size. Use gnome or any other desktop manager to resolve
+
 Running the application
 - Please launch the command "./RUN.sh" in this directory.
 - This application is designed to run with Java 1.8, and assumes that the JDK is installed at /usr/lib/jvm/jdk8. (Path to Java is /usr/lib/jvm/jdk8/bin/java)
@@ -27,3 +30,8 @@ Music is sourced from: (open source)
 http://xplsv.com/prods/music/sole/mp3/s0le%20-%20City%20Ambient%20EP%20-%20intro.mp3
 Homophones sourced from:
 http://people.sc.fsu.edu/~jburkardt/fun/wordplay/multinyms.html
+Icon pack is sourced from: (open source)
+https://useiconic.com/open
+
+Git Repo:
+https://github.com/mkem114/SE206-Assignment-4

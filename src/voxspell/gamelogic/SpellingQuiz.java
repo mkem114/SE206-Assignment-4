@@ -148,7 +148,7 @@ public abstract class SpellingQuiz implements Serializable {
 
             return false;
         } else {
-            _currentWord = _quizWords.get(wordNum());
+
 
             if (_state == QuizState.MASTERED) {
                 TextToSpeech.access().speak("Awesome! Now spell " + _currentWord.word());
@@ -161,6 +161,8 @@ public abstract class SpellingQuiz implements Serializable {
             } else {
                 TextToSpeech.access().speak(_currentWord.word());
             }
+
+            _currentWord = _quizWords.get(wordNum());
 
             _state = QuizState.NEW;
             // TODO fix correct and stuff being said or double up of word to
