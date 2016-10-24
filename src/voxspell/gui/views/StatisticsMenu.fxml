@@ -37,19 +37,19 @@
                <Tooltip text="Level you want statistics for"/>
            </tooltip>
        </ComboBox>
-      <Label layoutX="196.0" layoutY="116.0" style="-fx-font-size: 12;" text="Accuracy" />
-       <Label fx:id="accuracyLevel" layoutX="377.0" layoutY="116.0" style="-fx-font-size: 12;" text="\%">
+       <Label layoutX="196.0" layoutY="116.0" style="-fx-font-size: 14;" text="Accuracy"/>
+       <Label fx:id="accuracyLevel" layoutX="377.0" layoutY="116.0" style="-fx-font-size: 14;" text="\%">
            <tooltip>
                <Tooltip text="How many words you got right in the level"/>
            </tooltip>
        </Label>
        <ScrollPane layoutX="102.0" layoutY="155.0">
            <content>
-               <TableView fx:id="statsTable" prefHeight="200.0" prefWidth="421.0">
+               <TableView fx:id="statsTable" prefHeight="200.0" prefWidth="421.0" style="-fx-font-size: 14;">
                    <columns>
-                       <TableColumn fx:id="wordColumn" prefWidth="201.0" text="Word" />
-                       <TableColumn fx:id="masteredColumn" prefWidth="77.0" text="Mastered" />
-                       <TableColumn fx:id="faultedColumn" prefWidth="64.0" text="Faulted" />
+                       <TableColumn fx:id="wordColumn" prefWidth="179.0" text="Word"/>
+                       <TableColumn fx:id="masteredColumn" prefWidth="87.0" text="Mastered"/>
+                       <TableColumn fx:id="faultedColumn" prefWidth="76.0" text="Faulted"/>
                        <TableColumn fx:id="failedColumn" prefWidth="61.0" text="Failed" />
                    </columns>
                    <tooltip>
