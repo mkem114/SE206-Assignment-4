@@ -13,7 +13,12 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Button fx:id="openBtn" mnemonicParsing="false" onAction="#goOpen" prefHeight="24.0" prefWidth="75.0" styleClass="menu-button" text="Open" />
+             <Button fx:id="openBtn" mnemonicParsing="false" onAction="#goOpen" prefHeight="24.0" prefWidth="75.0"
+                     styleClass="menu-button" text="Open">
+                 <tooltip>
+                     <Tooltip text="Add your owns words and levels"/>
+                 </tooltip>
+             </Button>
          </children>
       </HBox>
        <Label alignment="CENTER" layoutY="200.0" text="Pick a level..." textAlignment="CENTER"
@@ -25,12 +30,24 @@
        <HBox alignment="CENTER" layoutX="175.0" layoutY="250.0">
            <children>
                <ComboBox fx:id="levelPicker" onAction="#refresh" onMouseMoved="#refresh" prefWidth="167.0"
-                         styleClass="combo-box"/>
+                         styleClass="combo-box">
+                   <tooltip>
+                       <Tooltip text="Level you want to play"/>
+                   </tooltip>
+               </ComboBox>
                <Button fx:id="prieviewBtn" mnemonicParsing="false" onAction="#goPreview" styleClass="menu-button"
-                       text="Preview"/>
+                       text="Preview">
+                   <tooltip>
+                       <Tooltip text="Hear a word in the level"/>
+                   </tooltip>
+               </Button>
            </children>
        </HBox>
        <Button fx:id="playBtn" layoutX="263.0" layoutY="311.0" mnemonicParsing="false" onAction="#goPlay"
-               prefHeight="24.0" prefWidth="75.0" styleClass="menu-button" text="Play"/>
+               prefHeight="24.0" prefWidth="75.0" styleClass="menu-button" text="Play">
+           <tooltip>
+               <Tooltip text="Play the level"/>
+           </tooltip>
+       </Button>
    </children>
 </AnchorPane>

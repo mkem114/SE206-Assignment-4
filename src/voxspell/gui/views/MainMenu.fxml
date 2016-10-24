@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@protoTheme.css" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="voxspell.gui.controllers.MainMenuController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background"
+            stylesheets="@protoTheme.css" xmlns="http://javafx.com/javafx/8.0.65"
+            fx:controller="voxspell.gui.controllers.MainMenuController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -25,22 +21,43 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="playBtn" alignment="CENTER" defaultButton="true" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#goPlay" prefHeight="50.0" prefWidth="150.0" styleClass="main-menu-button" text="Play" />
+                   <Button fx:id="playBtn" alignment="CENTER" defaultButton="true" maxHeight="1.7976931348623157E308"
+                           mnemonicParsing="false" onAction="#goPlay" prefHeight="50.0" prefWidth="150.0"
+                           styleClass="main-menu-button" text="Play">
+                       <tooltip>
+                           <Tooltip text="Play the VOXSpell game and work through the levels"/>
+                       </tooltip>
+                   </Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="customBtn" mnemonicParsing="false" onAction="#goCustom" prefHeight="50.0" prefWidth="150.0" styleClass="main-menu-button" text="Custom" />
+                   <Button fx:id="customBtn" mnemonicParsing="false" onAction="#goCustom" prefHeight="50.0"
+                           prefWidth="150.0" styleClass="main-menu-button" text="Custom">
+                       <tooltip>
+                           <Tooltip text="Play any VOXSpell level including your own"/>
+                       </tooltip>
+                   </Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="statisticsBtn" mnemonicParsing="false" onAction="#goStatistics" prefHeight="50.0" prefWidth="150.0" styleClass="main-menu-button" text="Statistics" />
+                   <Button fx:id="statisticsBtn" mnemonicParsing="false" onAction="#goStatistics" prefHeight="50.0"
+                           prefWidth="150.0" styleClass="main-menu-button" text="Statistics">
+                       <tooltip>
+                           <Tooltip text="Look at statistics of all the words you've played"/>
+                       </tooltip>
+                   </Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
                <children>
-                  <Button fx:id="optionsBtn" mnemonicParsing="false" onAction="#goOptions" prefHeight="50.0" prefWidth="150.0" styleClass="main-menu-button" text="Options" />
+                   <Button fx:id="optionsBtn" mnemonicParsing="false" onAction="#goOptions" prefHeight="50.0"
+                           prefWidth="150.0" styleClass="main-menu-button" text="Options">
+                       <tooltip>
+                           <Tooltip text="Change the settings of VOXSpell"/>
+                       </tooltip>
+                   </Button>
                </children>
             </VBox>
          </children>
@@ -54,7 +71,12 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Button fx:id="musicBtn" layoutX="524.0" layoutY="14.0" mnemonicParsing="false" onAction="#musicSwitch" styleClass="menu-button" text="music" />
+             <Button fx:id="musicBtn" layoutX="524.0" layoutY="14.0" mnemonicParsing="false" onAction="#musicSwitch"
+                     styleClass="menu-button" text="music">
+                 <tooltip>
+                     <Tooltip text="Pauses and resumes the background music"/>
+                 </tooltip>
+             </Button>
          </children>
       </AnchorPane>
    </top>

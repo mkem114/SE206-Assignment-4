@@ -1,5 +1,8 @@
 package voxspell.gamelogic;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
+import voxspell.gui.App;
 import voxspell.inputoutput.TextToSpeech;
 
 import java.io.Serializable;
@@ -152,7 +155,9 @@ public abstract class SpellingQuiz implements Serializable {
             } else if (_state == QuizState.FAULTED) {
                 TextToSpeech.access().speak("Correct! Now spell " + _currentWord.word());
             } else if (_state == QuizState.FAILED) {
-                TextToSpeech.access().speak("Incorrect, better luck next time! Now spell " + _currentWord.word());
+                TextToSpeech.access().speak("Incorrect, better luck next time!");
+                giveAnswer();
+                TextToSpeech.access().speak("Now spell " + _currentWord.word());
             } else {
                 TextToSpeech.access().speak(_currentWord.word());
             }
@@ -185,6 +190,16 @@ public abstract class SpellingQuiz implements Serializable {
 
     public void next() {
         _level.next();
+    }
+
+    private void giveAnswer() {
+        Alert answer = new Alert(Alert.AlertType.INFORMATION);
+        answer.setTitle("You got the word wrong!");
+        answer.setHeaderText(null);
+        answer.setContentText("The correct answer was: " + _currentWord.word());
+        DialogPane pane = answer.getDialogPane();
+        pane.getStylesheets().add(App.class.getResource("views/protoTheme.css").toExternalForm());
+        answer.showAndWait();
     }
 
     /**
