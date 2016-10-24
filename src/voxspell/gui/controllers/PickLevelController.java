@@ -3,6 +3,7 @@ package voxspell.gui.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -80,12 +81,21 @@ public class PickLevelController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// populates the combobox
-		_levels = App.inst().game().levels();
-		// Display the readable form in the Combo Box
-		_ob = FXCollections.observableArrayList(_levels);
-		levelPicker.getItems().addAll(_ob);
-		levelPicker.getSelectionModel().selectFirst(); // currently defaults to
-													// first one
+		refresh(new ActionEvent());
+	}
+
+	@FXML
+	public void refresh(Event evt) {
+		if (levelPicker.getItems().size() == 0) {
+			if (!(App.inst() == null || App.inst().game() == null || App.inst().game().levels() == null)) {
+				// populates the combobox
+				_levels = App.inst().game().levels();
+				// Display the readable form in the Combo Box
+				_ob = FXCollections.observableArrayList(_levels);
+				levelPicker.getItems().addAll(_ob);
+				levelPicker.getSelectionModel().selectFirst(); // currently defaults to
+				// first one
+			}
+		}
 	}
 }

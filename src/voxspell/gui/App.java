@@ -8,7 +8,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import voxspell.gamelogic.SpellingGame;
-import voxspell.inputoutput.BackgroundMusic;
 import voxspell.inputoutput.SaveGame;
 
 import java.io.FileNotFoundException;
@@ -104,6 +103,9 @@ public class App extends Application {
 			_game = _save.load();
 			return true;
 		} catch (FileNotFoundException e) {
+			_game = new SpellingGame();
+			_save = new SaveGame(_game);
+			_save.save();
 			resetGame();
 			return false;
 		}

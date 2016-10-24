@@ -13,7 +13,9 @@
       </Label>
        <HBox alignment="CENTER" layoutX="147.0" layoutY="142.0">
            <children>
-               <ComboBox fx:id="levelPicker" prefWidth="167.0" styleClass="combo-box">
+               <ComboBox fx:id="levelPicker" onAction="#refresh" onContextMenuRequested="#refresh"
+                         onMouseClicked="#refresh" onMouseMoved="#refresh" onScroll="#refresh" prefWidth="167.0"
+                         styleClass="combo-box">
                    <tooltip>
                        <Tooltip text="Level you want to play"/>
                    </tooltip>
