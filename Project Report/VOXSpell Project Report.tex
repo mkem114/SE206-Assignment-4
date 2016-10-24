@@ -381,12 +381,16 @@ Email: mkem114@aucklanduni.ac.nz}}
 	
 \section{Code Design and Development}
 	\subsection{Software Design}
-	java??\\other libraries\\
+		\subsubsection{Language Choice}
+			Java may not have been the best language as some others allow greater cross platform abilities by using web technology and it is not as good as them. However the developers already knew Java so development cost was saved. It also offers an extensive set of inbuilt frameworks and libraries such as JavaFX, MediaPlayer and ProcessBuilder which saves time hunting libraries and normally guarantees they are maintained and of high quality.
+		\subsubsection{Libraries Used}
+			Festival is the primary library used not included in Java and it was picked because there it's the most cost-effective solution for Linux as it's free. Mac OSX's in built "say" command is much nicer; it manages to pronounce every word and is much easier to understand because it sounds nicer.
 	\subsection{Development Process}
+		The development process used was XP (eXtreme Programming) but a modified form for a development team of one. The schedule was semi-relaxed to meet with the Client's times. It was quite effective as the clients further refined their specificaiton as time went on and weekly meetings helped nurture this. It was also an issue because it caused unpredictable workload due to it being dependant on what the clients felt like.
 	\subsection{Innovation}
+		The primary implementation innovation was that of a ResourceLoader class. Java requires a resources to be in a subdirectory of a class to be accessible which leads to messy packaging. By having resources in a seperate package mess was organised and with ResourceLoader implementing the singleton pattern it made resources accessible to any class which needed to load it. Duplicate code also fell as the code to get a resource only needed to be in ResourceLoader.
 	\subsection{Shortcut keys}
-	motivations\\implementation\\
-	\subsection{Other Challenges}
+		Using the arrow keys and space to navigate the UI was implemented because kids have better control with a keyboard and because expert users will prefer it due to being faster. Space instead of enter as a key is much larger and allows the hand to stay on the home row of the keyboard better. The arrow keys engage the kids on a game level. Not much work needed to be done and JavaFX did most of the work.
 
 \section{Evaluation and Testing}
 	\subsection{Individual Results}
