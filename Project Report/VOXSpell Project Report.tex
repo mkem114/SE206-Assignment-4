@@ -340,39 +340,67 @@ Email: mkem114@aucklanduni.ac.nz}}
 
 
 \section{General User Interface Design}
-blah\\blahh\\
-
-\subsection{Choice of Java, Java FX and Festival}
-Subsection text here.\\e\\
-
-
-\subsection{Colours and Layout}
-Subsubsection text here.\\ueaob\\
-
-\subsection{Information Presentation}
-ee\\ee\\
-
-\subsection{Other Challenges}
-ee\\ee\\
+	\subsection{Choice of Packages}
+		\subsubsection{Java}
+			Being very highly used at the time of development means that it is highly documented by the Java developer community and there are many GUI frameworks to choose from.\\
+			Cross-platform mobility makes Java a good candidate especially with Android's primary developer language being it, thus leaving the door open for a future mobile application. All that would be needed is for a mobile frontend with modified controllers.\\
+			Java is intended to be cross-platform which leads to developers of frameworks and libraries trying to retain that; this makes for developing across all PCs much easier.
+		\subsubsection{JavaFX}
+			Gluon scenebuilder is a drag'n'drop GUI builder with a high level of refinement which speeds up development and reduces errors. It also presents options during creation leading to more new ideas.\\
+			Swing (the predecessor) will run out of support sooner which means the application's life is extended by being created with JavaFx. It also brings new features out they may be very useful during development.\\
+			JavaFX when correctly done enforces the MVC pattern because all view information is put in the ".fxml" files and the controller classses are auto-generated thus increasing the maintainability and flexibility of the interface.
+		\subsubsection{Festival}
+			The client uses a version of Ubuntu as their operating system and Festival is easy to install and maintain with Ubuntu as it's probably the most widely used speech synthesis program there is on Linux.\\
+		\subsubsection{Iconic}
+			Iconic is open source so there is no legal issues in using it.\\
+			It is aesthetically pleasing while being simple, clear and inoffensive.\\
+			It is comprhensive and generic so there is little concern of not having an appropriate icon.\\
+	\subsection{Colours and Layout}
+	Subsubsection text here.\\ueaob\\
+	\subsection{Information Presentation}
+	ee\\ee\\
+	\subsection{Other Challenges}
+	ee\\ee\\
 
 \section{Functionality}
-\subsection{Motivation}
-\subsection{Userability Decisions}
-
-\section{Code Design and Development}
-\subsection{Software Design}
-java??\\other libraries\\
-\subsection{Development Process}
-\subsection{Innovation}
-\subsection{Shortcut keys}
-motivations\\implementation\\
-\subsection{Other Challenges}
+	\subsection{Motivation}
+	\subsection{Userability Decisions}
+	
+	\section{Code Design and Development}
+	\subsection{Software Design}
+	java??\\other libraries\\
+	\subsection{Development Process}
+	\subsection{Innovation}
+	\subsection{Shortcut keys}
+	motivations\\implementation\\
+	\subsection{Other Challenges}
 
 \section{Evaluation and Testing}
-\subsection{Individual Results}
-\subsection{Peer Results}
-any changes made to beta\\justification on change or lack of
-\subsection{Other Evaluation}
+	\subsection{Individual Results}
+	\subsection{Peer Results}
+		\begin{itemize}
+			\item Background music button: A mute button was added to the main menu and it no longer plays on anything else to avoid clashing.
+			\item Back button in quizzes: Added but saves progress thus far as the user did attempt to spell those words.
+			\item Explanation of statistics: Included in the user manual.
+			\item Voice change while playing: Decided against due to cluttering the UI.
+			\item Plain main menu: Intentional to avoid UI clutter and easy navigation for children due to their lesser motor skills.
+			\item Custom word list: Added in the "Custom" mode
+			\item Level difficulty feedback: Done in a different way with the words in it being previewed (with speech) so the user knows the difficulty before hand.
+			\item Start button for quiz: Not implemented as user can replay the word at no penalty so it would only serve to annoy power users.
+			\item Repeating voice message: This is a feature of the player pressing buttons too many times and will stop, kids will find this comical so it was decided not to remove.
+			\item All words shown in stats: Intentional to keep UI consistency.
+			\item New method of displaying stats: Implemented stats as a table which is a much more natural way of reading.
+			\item Disabling submit button: Not implemented to show to markers that my UI doesn't freeze and if the player is experienced enough they might know the word from the beginning sound. 
+			\item Quiet music: Intentionally not loud so as not annoy caregivers and it is background not foreground music.
+			\item Hidden savegame file: Implemented but not fully so power users can do things like back up savegames while avoiding novice users from accidentally deleting.
+			\item Non-alphabet characters: Implemented, non-alphabet characters stop the player from submitting and children have less motor control than adults.
+			\item Reset method: Intentionally this way as it restores the game to as if it is started for the first time.
+			\item Review-mode bug: Not applicable as the mode was removed.
+			\item Voices not working bug: Not reproduceable, it was tested on UG4 with all three voices.
+			\item Music custimsation: Implemented, if the readme or user manual is read.
+			\item More gamification: Implemented, a new experience system was introduced.
+			\item File searching: Implemented under "Custom" mode.
+		\end{itemize}
 
 \section{Future Work}
 
