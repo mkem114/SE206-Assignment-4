@@ -27,6 +27,7 @@ public abstract class SpellingQuiz implements Serializable {
     private int _correct;
     private SpellingLevel _level;
     private QuizWord _currentWord;
+    private String _lastword = "null";
     private QuizState _state;
 
     /**
@@ -148,7 +149,7 @@ public abstract class SpellingQuiz implements Serializable {
 
             return false;
         } else {
-
+            _currentWord = _quizWords.get(wordNum());
 
             if (_state == QuizState.MASTERED) {
                 TextToSpeech.access().speak("Awesome! Now spell " + _currentWord.word());
@@ -161,9 +162,6 @@ public abstract class SpellingQuiz implements Serializable {
             } else {
                 TextToSpeech.access().speak(_currentWord.word());
             }
-
-            _currentWord = _quizWords.get(wordNum());
-
             _state = QuizState.NEW;
             // TODO fix correct and stuff being said or double up of word to
             // spell
@@ -198,7 +196,7 @@ public abstract class SpellingQuiz implements Serializable {
         Alert answer = new Alert(Alert.AlertType.INFORMATION);
         answer.setTitle("You got the word wrong!");
         answer.setHeaderText(null);
-        answer.setContentText("The correct answer was: " + _currentWord.word());
+        answer.setContentText("The correct answer was: " + _lastword);
         DialogPane pane = answer.getDialogPane();
         pane.getStylesheets().add(ResourceLoader.inst().appTheme());
         answer.showAndWait();

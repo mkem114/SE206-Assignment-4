@@ -4,6 +4,8 @@ AUTHOR: mkem114
 
 NOTES TO MARKER:
 - Only on the unity desktop manager in ubuntu 14.04 does the text randomly change size. Use gnome or any other desktop manager to resolve the issue, the issue is not with my program nor Java FX.
+- On a similar note the application icon appears in other desktop managers but not unity
+- The user manual would have many more screenshots of things like clicked buttons and and open comboboxes but this is very hard on UG4 computers (I don't know of a way because they undo themselves).
 
 Running the application:
 - You may need to run the command "chmod 777 RUN.sh" in this folder

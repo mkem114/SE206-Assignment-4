@@ -42,20 +42,21 @@ public class NewSpellingQuiz extends SpellingQuiz {
             List<QuizWord> workingList = new ArrayList<>(rawList);
             workingList.sort(new Comparator<QuizWord>() {
                 public int compare(QuizWord word1, QuizWord word2) {
-                    if (word1.timesFailed() > word2.timesFailed()) {
+                    if (word2.timesAttempted() > word1.timesAttempted()) {
                         return 1;
-                    } else if (word1.timesFailed() == word2.timesFailed()) {
+                    } else if (word2.timesAttempted() == word1.timesAttempted()) {
                         if (word1.timesFaulted() > word2.timesFaulted()) {
                             return 1;
                         } else if (word1.timesFaulted() == word2.timesFaulted()) {
-                            if (word2.timesAttempted() > word1.timesAttempted()) {
+                            if (word1.timesFailed() > word2.timesFailed()) {
                                 return 1;
-                            } else if (word2.timesAttempted() == word1.timesAttempted()) {
+                            } else if (word1.timesFailed() == word2.timesFailed()) {
                                 return 0;
                             }
                         }
                     }
                     return -1;
+
                 }
             });
             List<QuizWord> playList = new ArrayList<>();

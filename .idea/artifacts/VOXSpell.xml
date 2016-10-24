@@ -33,6 +33,9 @@
       </element>
       <element id="file-copy" path="$PROJECT_DIR$/RUN.sh" />
       <element id="file-copy" path="$PROJECT_DIR$/User Manual/VOXSpell User Manual.pdf" />
+      <element id="directory" name="Source Code">
+        <element id="dir-copy" path="$PROJECT_DIR$/src" />
+      </element>
     </root>
   </artifact>
 </component>

@@ -6,10 +6,16 @@
 \contentsline {section}{\numberline {4}Main Menu}{6}
 \contentsline {subsection}{\numberline {4.1}Background Music}{6}
 \contentsline {section}{\numberline {5}Playing a Quiz}{7}
-\contentsline {section}{\numberline {6}Playing a Custom Quiz}{7}
-\contentsline {section}{\numberline {7}Viewing Statistics}{7}
-\contentsline {subsection}{\numberline {7.1}Levels}{7}
-\contentsline {subsection}{\numberline {7.2}Sorting}{7}
-\contentsline {section}{\numberline {8}Changing Options}{7}
-\contentsline {subsection}{\numberline {8.1}Voices}{7}
-\contentsline {subsection}{\numberline {8.2}Reset}{8}
+\contentsline {subsection}{\numberline {5.1}Statistics}{7}
+\contentsline {subsection}{\numberline {5.2}Playing}{8}
+\contentsline {subsection}{\numberline {5.3}Experience}{8}
+\contentsline {subsection}{\numberline {5.4}End of Quiz}{9}
+\contentsline {subsubsection}{\numberline {5.4.1}Video Reward}{9}
+\contentsline {section}{\numberline {6}Playing a Custom Quiz}{13}
+\contentsline {subsection}{\numberline {6.1}Adding Levels or Words}{13}
+\contentsline {section}{\numberline {7}Viewing Statistics}{13}
+\contentsline {subsection}{\numberline {7.1}Levels}{13}
+\contentsline {subsection}{\numberline {7.2}Sorting}{14}
+\contentsline {section}{\numberline {8}Changing Options}{16}
+\contentsline {subsection}{\numberline {8.1}Voices}{16}
+\contentsline {subsection}{\numberline {8.2}Reset}{16}
