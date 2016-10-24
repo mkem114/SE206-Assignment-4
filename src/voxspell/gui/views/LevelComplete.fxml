@@ -4,7 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" stylesheets="@protoTheme.css"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@../../resources/appTheme.css"
             xmlns="http://javafx.com/javafx/8.0.65" fx:controller="voxspell.gui.controllers.LevelCompleteController">
    <children>
       <ButtonBar layoutX="143.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">

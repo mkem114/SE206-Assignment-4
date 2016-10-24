@@ -12,8 +12,8 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 import voxspell.gamelogic.SpellingQuiz;
 import voxspell.gui.App;
+import voxspell.resources.ResourceLoader;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,9 +26,8 @@ import java.util.ResourceBundle;
  *
  */
 public class VideoPlayerController implements Initializable {
-	// The url is set to be "reward.mp4" at the moment
-	private String url = new File("VOXSpell/reward.mp4").toURI().toString();
-	private Media media = new Media(url);
+	// The url is set to be ".reward.mp4" at the moment
+	private Media media = new Media(ResourceLoader.inst().videoReward());
 	private boolean isPlaying = false;
 	// keep a reference to the quiz so user can return to the end of level
 	// screen

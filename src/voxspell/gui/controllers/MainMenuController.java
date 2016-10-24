@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import voxspell.gui.App;
 import voxspell.inputoutput.BackgroundMusic;
+import voxspell.resources.ResourceLoader;
 
 import java.io.IOException;
 
@@ -128,7 +129,7 @@ public class MainMenuController {
 	@FXML
 	public void initialize() {
 		_music = new BackgroundMusic();
-		Image imageMusic = new Image(App.class.getResourceAsStream("views/headphones-2x.png"));
+		Image imageMusic = new Image(ResourceLoader.inst().resourceStream("headphones-2x.png"));
 		musicBtn.setGraphic(new ImageView(imageMusic));
 	}
 }

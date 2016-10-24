@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@protoTheme.css"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../resources/appTheme.css"
             xmlns="http://javafx.com/javafx/8.0.65" fx:controller="voxspell.gui.controllers.OptionsMenuController">
    <children>
       <ButtonBar layoutX="59.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">

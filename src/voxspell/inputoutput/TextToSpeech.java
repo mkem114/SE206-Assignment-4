@@ -144,8 +144,8 @@ public class TextToSpeech {
 		// Scheme file now exists
 		try {
 			PrintWriter writer = new PrintWriter(scm);
-			writer.println("(Parameter.set 'Duration_Stretch 1.2)");
-			writer.println("(voice_" + _selectedVoice + ")");
+            writer.println("(Parameter.set 'Duration_Stretch 1.5)");
+            writer.println("(voice_" + _selectedVoice + ")");
 			writer.println("(SayText \"" + speak + "\")");
 			writer.close();
 		} catch (FileNotFoundException e) {

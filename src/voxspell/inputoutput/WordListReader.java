@@ -6,6 +6,7 @@ package voxspell.inputoutput;
 
 import javafx.concurrent.Task;
 import voxspell.gamelogic.SpellingGame;
+import voxspell.resources.ResourceLoader;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class WordListReader {
 	/**
 	 * Default file name to read words from
 	 */
-	public static final String DEFAULTWORDLISTFILENAME = "defaultWordlist.txt";
+	public static final String DEFAULTWORDLISTFILENAME = ResourceLoader.DEFAULT_WORDLIST_NAME;
 	public static final String DEFAULTHOMOPHONESFILENAME = "./VOXSpell/homophones.txt";
 	private List<SpellingGame> _listeners;
 	private BufferedReader _wordlistFile;
@@ -57,8 +58,8 @@ public class WordListReader {
 	public WordListReader(String filename) throws FileNotFoundException {
         // The default is in the same package so a different way to read is needed
         if (filename.equals(DEFAULTWORDLISTFILENAME)) {
-            _wordlistFile = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filename)));
-        } else {
+			_wordlistFile = new BufferedReader(new InputStreamReader(ResourceLoader.inst().defaultWordlist()));
+		} else {
             _wordlistFile = new BufferedReader(new FileReader(filename));
         }
         _homophonesFile = new BufferedReader(new FileReader(DEFAULTHOMOPHONESFILENAME));

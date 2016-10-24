@@ -198,7 +198,7 @@ public abstract class SpellingQuiz implements Serializable {
         answer.setHeaderText(null);
         answer.setContentText("The correct answer was: " + _currentWord.word());
         DialogPane pane = answer.getDialogPane();
-        pane.getStylesheets().add(App.class.getResource("views/protoTheme.css").toExternalForm());
+        pane.getStylesheets().add(App.class.getResource("views/appTheme.css").toExternalForm());
         answer.showAndWait();
     }
 

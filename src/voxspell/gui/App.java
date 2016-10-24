@@ -3,15 +3,16 @@ package voxspell.gui;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import voxspell.gamelogic.SpellingGame;
 import voxspell.inputoutput.SaveGame;
+import voxspell.resources.ResourceLoader;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 
 // REFERENCE: The implementation technique was inspired by this website:
 // http://javajdk.net/tutorial/multiple-javafx-scenes-sharing-one-menubar/
@@ -171,9 +172,9 @@ public class App extends Application {
 			// Sets window size
 			Scene scene1 = new Scene(_root, 600, 400);
 			// Set styling
-			scene1.getStylesheets().add(getClass().getResource("views/protoTheme.css").toExternalForm());
+			scene1.getStylesheets().add(ResourceLoader.inst().appTheme());
 			// Sets the icon
-			_primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("views/VOX2.png")));
+			_primaryStage.getIcons().add(ResourceLoader.inst().appIcon());
 			// Starts application
 			_primaryStage.setScene(scene1);
 			// Make the application un-resizable
@@ -183,5 +184,9 @@ public class App extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	protected URL fxmlFile(String name) {
+		return getClass().getResource("views/" + name + ".fxml");
 	}
 }
