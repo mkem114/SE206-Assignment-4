@@ -97,7 +97,7 @@ public class StatisticsMenuController implements Initializable {
 		for (SpellingLevel level : stats) {
 			if (level.name().equals(statsLevelPicker.getValue())) {
 				accuracyLevel.setText(level.accuracy()+"%");
-				statsTable.setItems(level.statistics());
+				statsTable.setItems(level.statistics().sorted());
 				break;
 			}
 		}
