@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  25 OCT 2016 05:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  25 OCT 2016 06:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -140,48 +140,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 355--358
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 375--376
-
- []
-
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 382.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 382.
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
 
-Underfull \hbox (badness 4647) in paragraph at lines 396--397
-[]\OT1/ptm/m/n/10 Non-alphabet char-ac-ters: Im-ple-mented, non-alphabet
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--379
+
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 435.
+(Font)              <7> on input line 385.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 435.
+(Font)              <5> on input line 385.
+
+Underfull \hbox (badness 4647) in paragraph at lines 399--400
+[]\OT1/ptm/m/n/10 Non-alphabet char-ac-ters: Im-ple-mented, non-alphabet
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
+\OT1/ptm/m/n/8 http://www.empower-yourself-with-color-psychology.com/color-
+ []
+
+
+Underfull \hbox (badness 1490) in paragraph at lines 439--440
+[]\OT1/ptm/m/n/8 Colour Blind Aware-ness. (2016, 10 23). Types of Colour Blind-
+
+ []
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 439--440
+\OT1/ptm/m/n/8 ness [On-line]. Avail-able: http://www.colourblindawareness.org/
+colour-
+ []
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -195,11 +192,11 @@ Before submitting the final camera ready copy, remember to:
 
 [2] (./VOXSpell Project Report.aux) ) 
 Here is how much of TeX's memory you used:
- 1061 strings out of 494953
- 19404 string characters out of 6180976
- 77171 words of memory out of 5000000
- 4409 multiletter control sequences out of 15000+600000
- 37650 words of font info for 71 fonts, out of 8000000 for 9000
+ 1045 strings out of 494953
+ 19255 string characters out of 6180976
+ 76171 words of memory out of 5000000
+ 4401 multiletter control sequences out of 15000+600000
+ 33007 words of font info for 62 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
  26i,7n,19p,784b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/d
@@ -208,7 +205,7 @@ cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on "VOXSpell Project Report.pdf" (2 pages, 67356 bytes).
+Output written on "VOXSpell Project Report.pdf" (2 pages, 69116 bytes).
 PDF statistics:
  32 PDF objects out of 1000 (max. 8388607)
  22 compressed objects within 1 object stream
