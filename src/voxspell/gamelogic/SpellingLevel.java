@@ -2,6 +2,7 @@ package voxspell.gamelogic;
 
 import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.collections.ObservableList;
+import voxspell.inputoutput.TextToSpeech;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -151,5 +152,9 @@ public class SpellingLevel implements Serializable {
 
 	protected void save() {
 		_game.save();
-	}
+    }
+
+    protected void preview() {
+        TextToSpeech.access().speak(_words.get(new NumGenerator().randomInt(0, _words.size() - 1)).word());
+    }
 }

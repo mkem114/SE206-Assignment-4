@@ -41,6 +41,9 @@ public class PickLevelController implements Initializable {
 	private Button playBtn;
 
 	@FXML
+	private Button previewBtn;
+
+	@FXML
 	private ComboBox<String> levelPicker;
 
 	/**
@@ -65,6 +68,11 @@ public class PickLevelController implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@FXML
+	private void goPreview(ActionEvent event) {
+		App.inst().game().previewLevel(levelPicker.getSelectionModel().getSelectedItem());
 	}
 
 	/**

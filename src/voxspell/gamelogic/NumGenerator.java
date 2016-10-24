@@ -1,11 +1,7 @@
 package voxspell.gamelogic;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 /**
  * <h1>NumGenerator</h1> Generates numbers (random)
@@ -37,7 +33,7 @@ public class NumGenerator implements Serializable {
 	 *            Amount of random numbers
 	 * @return List of unique numbers
 	 */
-	public List<Integer> UniqueRandomInteger(int low, int high, int amount) {
+	public List<Integer> UniqueRandomIntegers(int low, int high, int amount) {
 		Set<Integer> nums = new HashSet<Integer>();
 
 		if ((high - low) > amount) {
@@ -57,5 +53,13 @@ public class NumGenerator implements Serializable {
 		ArrayList<Integer> numList = new ArrayList<Integer>();
 		numList.addAll(nums);
 		return numList;
+	}
+
+	public int randomInt(int low, int high) {
+		if ((high < low)) {
+			// TODO Throw an exception that a unique set cannot be given
+		}
+		Random rand = new Random();
+		return rand.nextInt(high - low) + low;
 	}
 }

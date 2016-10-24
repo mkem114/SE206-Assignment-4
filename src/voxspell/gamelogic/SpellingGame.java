@@ -160,4 +160,14 @@ public class SpellingGame implements Serializable {
 	protected void save() {
 		App.inst().saveGame();
 	}
+
+	public void previewLevel(String level) {
+		ArrayList<SpellingLevel> allLevels = new ArrayList<>(_levels);
+		allLevels.addAll(_customLevels);
+		for (SpellingLevel search : allLevels) {
+			if (search.name().equals(level)) {
+				search.preview();
+			}
+		}
+	}
 }

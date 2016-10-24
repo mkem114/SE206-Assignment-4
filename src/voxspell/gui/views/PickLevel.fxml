@@ -3,17 +3,24 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@protoTheme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="voxspell.gui.controllers.PickLevelController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" stylesheets="@protoTheme.css"
+            xmlns="http://javafx.com/javafx/8.0.65" fx:controller="voxspell.gui.controllers.PickLevelController">
    <children>
       <Label alignment="CENTER" layoutY="89.0" text="Pick a level..." textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <ComboBox fx:id="levelPicker" layoutX="175.0" layoutY="139.0" prefWidth="167.0" styleClass="combo-box" />
-      <Button fx:id="playBtn" layoutX="263.0" layoutY="200.0" mnemonicParsing="false" onAction="#goPlay" prefHeight="24.0" prefWidth="75.0" styleClass="menu-button" text="Play" />
+       <HBox alignment="CENTER" layoutX="147.0" layoutY="142.0">
+           <children>
+               <ComboBox fx:id="levelPicker" prefWidth="167.0" styleClass="combo-box"/>
+               <Button fx:id="previewBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                       onAction="#goPreview" styleClass="menu-button" text="Preview"/>
+           </children>
+       </HBox>
+       <Button fx:id="playBtn" layoutX="253.0" layoutY="200.0" mnemonicParsing="false" onAction="#goPlay"
+               prefHeight="36.0" prefWidth="95.0" styleClass="main-menu-button" text="Play"/>
    </children>
 </AnchorPane>

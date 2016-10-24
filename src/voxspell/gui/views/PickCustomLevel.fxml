@@ -6,14 +6,6 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" stylesheets="@protoTheme.css"
             xmlns="http://javafx.com/javafx/8.0.65" fx:controller="voxspell.gui.controllers.PickCustomLevelController">
    <children>
-      <Label alignment="CENTER" layoutY="200.0" text="Pick a level..." textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-       <ComboBox fx:id="levelPicker" layoutX="175.0" layoutY="250.0" onAction="#refresh" onMouseMoved="#refresh"
-                 prefWidth="167.0" styleClass="combo-box"/>
-      <Button fx:id="playBtn" layoutX="263.0" layoutY="311.0" mnemonicParsing="false" onAction="#goPlay" prefHeight="24.0" prefWidth="75.0" styleClass="menu-button" text="Play" />
       <HBox alignment="CENTER" layoutX="1.0" layoutY="71.0" prefWidth="600.0">
          <children>
             <Label fx:id="pickedFile" alignment="CENTER" text="Add wordlist..." textAlignment="CENTER">
@@ -24,5 +16,21 @@
             <Button fx:id="openBtn" mnemonicParsing="false" onAction="#goOpen" prefHeight="24.0" prefWidth="75.0" styleClass="menu-button" text="Open" />
          </children>
       </HBox>
+       <Label alignment="CENTER" layoutY="200.0" text="Pick a level..." textAlignment="CENTER"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+           <font>
+               <Font size="26.0"/>
+           </font>
+       </Label>
+       <HBox alignment="CENTER" layoutX="175.0" layoutY="250.0">
+           <children>
+               <ComboBox fx:id="levelPicker" onAction="#refresh" onMouseMoved="#refresh" prefWidth="167.0"
+                         styleClass="combo-box"/>
+               <Button fx:id="prieviewBtn" mnemonicParsing="false" onAction="#goPreview" styleClass="menu-button"
+                       text="Preview"/>
+           </children>
+       </HBox>
+       <Button fx:id="playBtn" layoutX="263.0" layoutY="311.0" mnemonicParsing="false" onAction="#goPlay"
+               prefHeight="24.0" prefWidth="75.0" styleClass="menu-button" text="Play"/>
    </children>
 </AnchorPane>
