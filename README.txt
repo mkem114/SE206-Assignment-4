@@ -6,6 +6,7 @@ NOTES TO MARKER:
 - Only on the unity desktop manager in ubuntu 14.04 does the text randomly change size. Use gnome or any other desktop manager to resolve the issue, the issue is not with my program nor Java FX.
 
 Running the application:
+- You may need to run the command "chmod 777 RUN.sh" in this folder
 - Please launch the command "./RUN.sh" in this folder (the one VOXSpell.jar is in).
 - VOXSpell needs to run with Java 1.8, and is installed at /usr/lib/jvm/jdk8. (Path to Java binary is /usr/lib/jvm/jdk8/bin/java).
 - VOXSpell needs to be run in UG4 on linux (press "l" when starting the computer).

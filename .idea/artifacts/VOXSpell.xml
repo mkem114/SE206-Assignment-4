@@ -32,6 +32,7 @@
         <element id="file-copy" path="$PROJECT_DIR$/VOXSpell/.reward.mp4" />
       </element>
       <element id="file-copy" path="$PROJECT_DIR$/RUN.sh" />
+      <element id="file-copy" path="$PROJECT_DIR$/User Manual/VOXSpell User Manual.pdf" />
     </root>
   </artifact>
 </component>
