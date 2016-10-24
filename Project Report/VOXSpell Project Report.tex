@@ -367,9 +367,19 @@ Email: mkem114@aucklanduni.ac.nz}}
 
 \section{Functionality}
 	\subsection{Motivation}
+	\begin{enumerate}
+		\item Words to be quizzed were picked on what the player needed to work on the most so that they wouldn't miss out on words while they progress through the game and to target their weak words insteading hiding behind their strong words.
+		\item Words that sound the same are not quizzed to the user to avoid confusion and frustration, this is a limitation of using speech to deliver the word to spell.
+		\item Game extension primarialy through adding more words provided by the user allows them to focus on what they need to that the game no longer targets. The default list is based on the New Zealand Goverment's education department for that age group but avid readers or players would soon outgrow it.
+	\end{enumerate}
 	\subsection{Userability Decisions}
+		\begin{enumerate}
+			\item The user doesn't know any better unless they read the user manual, it is entirely hidden. The only issue would be if it ended up repeating the same words forever but that is avoided by weighting in words less attempted.
+			\item This is presented to the user in the manual and readme if they wish to alter it so they can be tested on those words if they wish to be but with it being hidden in the "VOXSpell" folder a novice user needn't be concerned about it.
+			\item The decision to a new wordlist incorporate with the existing list was so that it wouldn't have to be reloaded on every start up of the game and also allows for all the features available to the default wordlist such as stats and level progression. This was trading off with robustness as it's hard to control what the user adds; to combat this instruction was given in the user manual.
+		\end{enumerate}
 	
-	\section{Code Design and Development}
+\section{Code Design and Development}
 	\subsection{Software Design}
 	java??\\other libraries\\
 	\subsection{Development Process}
@@ -406,7 +416,7 @@ Email: mkem114@aucklanduni.ac.nz}}
 		\end{itemize}
 
 \section{Future Work}
-
+using sentences or dictionaries
 \section{Conclusion}
 The conclusion goes here.
 
