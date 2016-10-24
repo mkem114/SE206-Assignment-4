@@ -46,6 +46,9 @@ public class GameController {
 	private ProgressBar progress;
 
 	@FXML
+	private ProgressBar experienceBar;
+
+	@FXML
 	private Button replayBtn;
 
 	@FXML
@@ -61,6 +64,7 @@ public class GameController {
 	@FXML
 	void onSubmit(ActionEvent event) {
 		String guess = attemptInput.getText().toLowerCase();
+		guess = guess.replaceAll("[^a-z]", "");
 		if (!guess.equals("")) {
 
 			updateProgress();
@@ -71,6 +75,9 @@ public class GameController {
 			}
 			attemptInput.clear();
 			updateProgress();
+			updateExperience();
+		} else {
+			attemptInput.clear();
 		}
 	}
 
@@ -109,6 +116,7 @@ public class GameController {
 		_quiz = App.inst().game().newQuiz();
 		updateProgress();
 		updateLevel();
+		updateExperience();
 	}
 
 	/**
@@ -131,4 +139,7 @@ public class GameController {
 		}
 	}
 
+	public void updateExperience() {
+		experienceBar.setProgress(_quiz.experience());
+	}
 }

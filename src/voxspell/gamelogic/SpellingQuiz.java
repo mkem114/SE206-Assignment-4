@@ -99,6 +99,7 @@ public abstract class SpellingQuiz implements Serializable {
      * @return The state of the word that was tested
      */
     public QuizState check(String guess) {
+        _level.save();
         guess = guess.toLowerCase();
         if (_state == QuizState.NEW) {
             if (guess.equals(_currentWord.word())) {
@@ -133,14 +134,13 @@ public abstract class SpellingQuiz implements Serializable {
      * @return If there are words left in the quiz
      */
     public boolean loadNext() {
+        _level.next();
+        _level.save();
         if (wordNum() == _quizWords.size()) {
             if (_state == QuizState.FAILED) {
                 TextToSpeech.access().speak("Incorrect. Round over.");
             } else {
                 TextToSpeech.access().speak("Correct. Round over.");
-            }
-            if (level().allWordsMastered() || quizAccuracy() > GUARANTEED_LEVEL_UP) {
-                _level.complete();
             }
 
             return false;
@@ -179,6 +179,14 @@ public abstract class SpellingQuiz implements Serializable {
         return _quizWords.size();
     }
 
+    public double experience() {
+        return _level.experience();
+    }
+
+    public void next() {
+        _level.next();
+    }
+
     /**
      * <h1>QuizState</h1> The current state of the quiz
      *
@@ -186,6 +194,7 @@ public abstract class SpellingQuiz implements Serializable {
      * @since 2016-09-08
      */
     public enum QuizState {
-        FINISHED, FAILED, FAULTED, MASTERED, NEW, SECONDGO
+        //DELETED FINISHED
+        FAILED, FAULTED, MASTERED, NEW, SECONDGO
     }
 }

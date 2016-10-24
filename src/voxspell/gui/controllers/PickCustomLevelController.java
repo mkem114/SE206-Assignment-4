@@ -1,6 +1,7 @@
 package voxspell.gui.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import voxspell.inputoutput.WordListReader;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -74,9 +76,21 @@ public class PickCustomLevelController implements Initializable {
 	}
 
 	private void populate(){
+		levelPicker.getItems().clear();
 		levelPicker.getItems().addAll(App.inst().game().customLevels());
 		levelPicker.getItems().addAll(App.inst().game().levels());
 		levelPicker.getSelectionModel().selectFirst();
+	}
+
+	@FXML
+	private void refresh(Event evt) {
+		ArrayList<String> allLevels = new ArrayList<>(App.inst().game().customLevels());
+		allLevels.addAll(App.inst().game().levels());
+		for (String newLevel : allLevels) {
+			if (!levelPicker.getItems().contains(newLevel)) {
+				levelPicker.getItems().add(newLevel);
+			}
+		}
 	}
 
 	@FXML
@@ -87,7 +101,12 @@ public class PickCustomLevelController implements Initializable {
 		if (wordlist != null) {
 			WordListReader reader = new WordListReader(wordlist);
 			reader.addObserver(App.inst().game());
-			populate();
+			try {
+				reader.readWords();
+			} catch (Exception e) {
+				e.printStackTrace();
+				//TODO
+			}
 		}
 	}
 }

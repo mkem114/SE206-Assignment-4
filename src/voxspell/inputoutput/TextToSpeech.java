@@ -1,17 +1,11 @@
 package voxspell.inputoutput;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import javafx.concurrent.Task;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import javafx.concurrent.Task;
 
 /**
  * <h1>TextToSpeech</h1> This class is responsible for taking text, synthesising
@@ -27,33 +21,17 @@ import javafx.concurrent.Task;
 public class TextToSpeech {
 
 	/**
-	 * <h1>OS</h1> Represents the three main PC operating system categories
-	 * (OSX, Linux, Windows)
-	 * <p>
-	 * 
-	 * @version 1.0
-	 * @author mkem114 (primary)
-	 * @since 2016-09-16
-	 */
-	private enum OS {
-		WINDOWS, OSX, LINUX
-	}
-
-	/**
 	 * The location of festival in UG4
 	 */
 	public static final String festivalLocation = "/usr/share/festival/voices/english";
 	public static final String scmStr = "./VOXSpell/.voice.scm";
-
 	private static TextToSpeech _instance = null;
 	private static OS _os;
-
 	private Thread lastSpeech;
 	private String _selectedVoice;
 	private String _selectedNiceVoice;
 	private ArrayList<String> _voices = new ArrayList<>();
 	private HashMap<String, String> _niceVoices = new HashMap<>();
-
 	/**
 	 * This constructor determines the operating system and picks the default
 	 * voice
@@ -75,6 +53,18 @@ public class TextToSpeech {
 		_selectedVoice = _niceVoices.get(_selectedNiceVoice);
 	}
 
+	/**
+	 * Access to the singleton instance of TextToSpeech
+	 *
+	 * @return Singleton's reference
+	 */
+	public static TextToSpeech access() {
+		if (_instance == null) {
+			_instance = new TextToSpeech();
+		}
+		return _instance;
+	}
+
 	public void introduceVoice() {
 		speak("Hi, my name is " + _selectedNiceVoice);
 	}
@@ -90,8 +80,8 @@ public class TextToSpeech {
 
 	/**
 	 * Select a voice to use by using the number of order it's in the list
-	 * 
-	 * @param index
+	 *
+	 * @param niceVoice
 	 *            Number along the list to choose
 	 */
 	public void chooseVoice(String niceVoice) {
@@ -109,20 +99,8 @@ public class TextToSpeech {
 	}
 
 	/**
-	 * Access to the singleton instance of TextToSpeech
-	 * 
-	 * @return Singleton's reference
-	 */
-	public static TextToSpeech access() {
-		if (_instance == null) {
-			_instance = new TextToSpeech();
-		}
-		return _instance;
-	}
-
-	/**
 	 * Speaks to the user through the speakers the text provided
-	 * 
+	 *
 	 * @param speak Text to be spoken
 	 */
 	public void speak(String speak) {
@@ -147,9 +125,9 @@ public class TextToSpeech {
 	/**
 	 * Generates a scheme file so that the text can be spoken with the selected
 	 * voice
-	 * 
+	 *
 	 * @param speak Text to be spoken
-	 *            
+	 *
 	 */
 	private void generateScheme(String speak) {
 		File scm = new File(scmStr);
@@ -218,6 +196,19 @@ public class TextToSpeech {
 			_voices.add("Solution");
 			_voices.add("Windows");
 		}
+	}
+
+	/**
+	 * <h1>OS</h1> Represents the three main PC operating system categories
+	 * (OSX, Linux, Windows)
+	 * <p>
+	 *
+	 * @author mkem114 (primary)
+	 * @version 1.0
+	 * @since 2016-09-16
+	 */
+	private enum OS {
+		WINDOWS, OSX, LINUX
 	}
 
 	/***

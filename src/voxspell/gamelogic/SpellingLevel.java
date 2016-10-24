@@ -58,6 +58,11 @@ public class SpellingLevel implements Serializable {
 	 *            Word to be added
 	 */
 	public void addWord(String word) {
+		for (QuizWord search : _words) {
+			if (search.word().equals(word)) {
+				return;
+			}
+		}
 		QuizWord wordToAdd = new QuizWord(word);
 		_words.add(wordToAdd);
 	}
@@ -104,7 +109,7 @@ public class SpellingLevel implements Serializable {
 	}
 
 	/**
-	 * Starts a new spelling quiz on this level
+	 * Starts a new custom spelling quiz on this level
 	 *
 	 * @return The new spelling quiz
 	 */
@@ -112,13 +117,6 @@ public class SpellingLevel implements Serializable {
 		SpellingQuiz csq = new CustomSpellingQuiz(this);
 		_quizzes.add(csq);
 		return csq;
-	}
-
-	/**
-	 * This level has been completed by the user
-	 */
-	public void complete() {
-		_game.levelUp();
 	}
 
 	public boolean allWordsMastered() {
@@ -130,7 +128,28 @@ public class SpellingLevel implements Serializable {
 		return true;
 	}
 
+	public double experience() {
+		int mastered = 0;
+		for (QuizWord word : _words) {
+			if (word.timesMastered() > 0) {
+				mastered++;
+			}
+		}
+		if (mastered == _words.size()) {
+			return 1;
+		}
+		return mastered / (double) _words.size();
+	}
+
 	protected List<QuizWord> words() {
 		return _words;
+	}
+
+	public void next() {
+		_game.levelUp();
+	}
+
+	protected void save() {
+		_game.save();
 	}
 }

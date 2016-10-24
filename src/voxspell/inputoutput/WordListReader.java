@@ -68,6 +68,7 @@ public class WordListReader {
 	public WordListReader(File wordlist) {
 		try {
 			_wordlistFile = new BufferedReader(new FileReader(wordlist.getAbsolutePath()));
+			_homophonesFile = new BufferedReader(new FileReader(DEFAULTHOMOPHONESFILENAME));
 		} catch (Exception e) {
 			//TODO
 			e.printStackTrace();
@@ -127,7 +128,6 @@ public class WordListReader {
 			List<String> levelNames = new ArrayList<>();
 			while (true) {
 				String w = _wordlistFile.readLine();
-				//w = w.trim();
 				if (w == null) {
 					break;
 				} else {
@@ -137,7 +137,9 @@ public class WordListReader {
 					} else if (!w.contains(" ")) {
 						w = w.toLowerCase();
 						if (!homophones.contains(w)) {
-							allWords.get(allWords.size() - 1).add(w);
+							if (w.length() != 0) {
+								allWords.get(allWords.size() - 1).add(w);
+							}
 						}
 					}
 				}

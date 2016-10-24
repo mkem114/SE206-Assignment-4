@@ -54,15 +54,11 @@ public class LevelCompleteController {
 			// either
 			qualifyLabel.setText("Unfortunately you don't qualify for a video reward.");
 			rewardBtn.setVisible(false);
-			continueBtn.setVisible(false);
+			continueBtn.setVisible(true);
 		} else {
 			qualifyLabel.setText("You qualify for a video reward!");
 			rewardBtn.setVisible(true);
 			continueBtn.setVisible(true);
-		}
-		if (App.inst().game().canLevelUp(quiz)) {
-			// Make sure user cannot access levels that don't exist
-			continueBtn.setVisible(false); // otherwise NPException
 		}
 
 		scoreLabel.setText(_quiz.numCorrect() + "/" + _quiz.wordNum());
@@ -102,6 +98,7 @@ public class LevelCompleteController {
 	void nextLevel(ActionEvent event) throws IOException {
 
 		try {
+			_quiz.next();
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(App.class.getResource("views/Game.fxml"));
 			AnchorPane game = loader.load();

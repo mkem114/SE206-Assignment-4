@@ -1,5 +1,6 @@
 package voxspell.gamelogic;
 
+import voxspell.gui.App;
 import voxspell.inputoutput.WordListReader;
 
 import java.io.Serializable;
@@ -80,13 +81,6 @@ public class SpellingGame implements Serializable {
 		}
 	}
 
-	public boolean canLevelUp(SpellingQuiz quiz) {
-		if (quiz instanceof NewSpellingQuiz && _levels.indexOf(quiz) != _levels.size() - 1) {
-
-		}
-		return false;
-	}
-
 	/**
 	 * Generates statistics for all words on all levels in the structure
 	 * [level[word[word, mastered, faulted, failed]]]
@@ -109,6 +103,19 @@ public class SpellingGame implements Serializable {
 	public void updateWords(List<List<String>> levelWords, List<String> levelNames) {
 		for (int i = 0; i < levelNames.size(); i++) {
 			SpellingLevel level = new SpellingLevel(levelNames.get(i), this);
+			if (levels().contains(levelNames.get(i))) {
+				for (SpellingLevel levelS : _levels) {
+					if (level.name().equals(levelNames.get(i))) {
+						level = levelS;
+					}
+				}
+			} else if (customLevels().contains(levelNames.get(i))) {
+				for (SpellingLevel levelS : _customLevels) {
+					if (level.name().equals(levelNames.get(i))) {
+						level = levelS;
+					}
+				}
+			}
 			for (String word : levelWords.get(i)) {
 				level.addWord(word);
 			}
@@ -125,10 +132,12 @@ public class SpellingGame implements Serializable {
 	/**
 	 * Promotes the user to the next level in the game
 	 */
-	public void levelUp() {
-		int currentIndex = _levels.indexOf(_currentLevel);
-		if (currentIndex < _levels.size() - 1) {
-			_currentLevel = _levels.get(++currentIndex);
+	protected void levelUp() {
+		if (_currentLevel != null) {
+			int currentIndex = _levels.indexOf(_currentLevel);
+			if (_currentLevel.experience() == 1.0 && currentIndex < _levels.size() - 1) {
+				_currentLevel = _levels.get(++currentIndex);
+			}
 		}
 	}
 
@@ -146,5 +155,9 @@ public class SpellingGame implements Serializable {
 			names.add(level.name());
 		}
 		return names;
+	}
+
+	protected void save() {
+		App.inst().saveGame();
 	}
 }

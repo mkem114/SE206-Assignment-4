@@ -61,6 +61,7 @@ public class CustomGameController {
 	@FXML
 	void onSubmit(ActionEvent event) {
 		String guess = attemptInput.getText().toLowerCase();
+		guess = guess.replaceAll("[^a-z]", "");
 		if (!guess.equals("")) {
 
 			updateProgress();
@@ -71,6 +72,8 @@ public class CustomGameController {
 			}
 			attemptInput.clear();
 			updateProgress();
+		} else {
+			attemptInput.clear();
 		}
 	}
 
