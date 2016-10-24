@@ -12,10 +12,12 @@
 \contentsline {subsection}{\numberline {5.4}End of Quiz}{9}
 \contentsline {subsubsection}{\numberline {5.4.1}Video Reward}{9}
 \contentsline {section}{\numberline {6}Playing a Custom Quiz}{13}
-\contentsline {subsection}{\numberline {6.1}Adding Levels or Words}{13}
-\contentsline {section}{\numberline {7}Viewing Statistics}{13}
-\contentsline {subsection}{\numberline {7.1}Levels}{13}
-\contentsline {subsection}{\numberline {7.2}Sorting}{14}
-\contentsline {section}{\numberline {8}Changing Options}{16}
-\contentsline {subsection}{\numberline {8.1}Voices}{16}
-\contentsline {subsection}{\numberline {8.2}Reset}{16}
+\contentsline {subsection}{\numberline {6.1}Experience}{13}
+\contentsline {subsection}{\numberline {6.2}Adding Levels or Words}{13}
+\contentsline {subsection}{\numberline {6.3}End of Custom Quiz}{14}
+\contentsline {section}{\numberline {7}Viewing Statistics}{15}
+\contentsline {subsection}{\numberline {7.1}Levels}{15}
+\contentsline {subsection}{\numberline {7.2}Sorting}{16}
+\contentsline {section}{\numberline {8}Changing Options}{18}
+\contentsline {subsection}{\numberline {8.1}Voices}{18}
+\contentsline {subsection}{\numberline {8.2}Reset}{18}
