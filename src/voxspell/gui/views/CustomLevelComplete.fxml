@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
@@ -10,10 +11,18 @@
    <children>
       <ButtonBar layoutX="143.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
-            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backToMenu" styleClass="menu-button" text="Back">
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backToMenu" prefHeight="28.0" prefWidth="96.0"
+                    styleClass="menu-button" text="Menu">
                 <tooltip>
                     <Tooltip text="Go back the main menu"/>
                 </tooltip>
+                <graphic>
+                    <ImageView fitHeight="76.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../resources/icons/menu-8x.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
             </Button>
         </buttons>
       </ButtonBar>
@@ -74,16 +83,30 @@
       </GridPane>
       <Label fx:id="qualifyLabel" alignment="CENTER" layoutX="286.0" layoutY="240.0" style="-fx-font-size: 14;" text="You qualified for a video reward!" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
        <Button fx:id="rewardBtn" layoutX="232.0" layoutY="267.0" mnemonicParsing="false" onAction="#showReward"
-               prefHeight="28.0" prefWidth="136.0" styleClass="gameplay-menu-button" text="Show Reward">
+               prefHeight="28.0" prefWidth="168.0" styleClass="gameplay-menu-button" text="Show Reward">
            <tooltip>
                <Tooltip text="Watch your video reward"/>
            </tooltip>
+           <graphic>
+               <ImageView fitHeight="65.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../../resources/icons/video-8x.png"/>
+                   </image>
+               </ImageView>
+           </graphic>
        </Button>
        <Button fx:id="continueBtn" layoutX="246.0" layoutY="303.0" mnemonicParsing="false" onAction="#nextLevel"
-               prefHeight="24.0" prefWidth="109.0" styleClass="menu-button" text="Continue">
+               prefHeight="28.0" prefWidth="136.0" styleClass="menu-button" text="Continue">
            <tooltip>
                <Tooltip text="Go play another quiz"/>
            </tooltip>
+           <graphic>
+               <ImageView fitHeight="81.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../../resources/icons/arrow-thick-right-8x.png"/>
+                   </image>
+               </ImageView>
+           </graphic>
        </Button>
    </children>
 </AnchorPane>

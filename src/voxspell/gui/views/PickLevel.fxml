@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
@@ -21,19 +23,33 @@
                        <Tooltip text="Level you want to play"/>
                    </tooltip>
                </ComboBox>
-               <Button fx:id="previewBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                       onAction="#goPreview" styleClass="menu-button" text="Preview">
+               <Button fx:id="previewBtn" alignment="CENTER" mnemonicParsing="false" onAction="#goPreview"
+                       prefHeight="28.0" prefWidth="106.0" styleClass="menu-button" text="Preview">
                    <tooltip>
                        <Tooltip text="Hear a word in the level"/>
                    </tooltip>
+                   <graphic>
+                       <ImageView fitHeight="97.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                               <Image url="@../../resources/icons/volume-high-8x.png"/>
+                           </image>
+                       </ImageView>
+                   </graphic>
                </Button>
            </children>
        </HBox>
        <Button fx:id="playBtn" layoutX="253.0" layoutY="200.0" mnemonicParsing="false" onAction="#goPlay"
-               prefHeight="36.0" prefWidth="95.0" styleClass="main-menu-button" text="Play">
+               prefHeight="36.0" prefWidth="117.0" styleClass="main-menu-button" text="Play">
            <tooltip>
                <Tooltip text="Start on the level"/>
            </tooltip>
+           <graphic>
+               <ImageView fitHeight="91.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../../resources/icons/arrow-thick-right-8x.png"/>
+                   </image>
+               </ImageView>
+           </graphic>
        </Button>
    </children>
 </AnchorPane>

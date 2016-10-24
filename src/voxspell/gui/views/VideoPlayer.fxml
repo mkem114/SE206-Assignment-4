@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.media.MediaView?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            stylesheets="@../../resources/appTheme.css"
-            xmlns="http://javafx.com/javafx/8.0.65" fx:controller="voxspell.gui.controllers.VideoPlayerController">
+            stylesheets="@../../resources/appTheme.css" xmlns="http://javafx.com/javafx/8.0.65"
+            fx:controller="voxspell.gui.controllers.VideoPlayerController">
    <children>
       <ButtonBar layoutX="451.0" layoutY="355.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
@@ -13,34 +14,69 @@
                 <tooltip>
                     <Tooltip text="Leave the video reward"/>
                 </tooltip>
+                <graphic>
+                    <ImageView fitHeight="99.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../resources/icons/action-undo-8x.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
             </Button>
         </buttons>
       </ButtonBar>
       <FlowPane alignment="CENTER" hgap="20.0" layoutX="173.0" layoutY="257.0" prefHeight="40.0" prefWidth="580.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
              <Button fx:id="rewindBtn" mnemonicParsing="false" onAction="#rewind" prefHeight="24.0" prefWidth="85.0"
-                     styleClass="menu-button" text="&lt;5&lt;">
+                     styleClass="menu-button" text="5s">
                  <tooltip>
                      <Tooltip text="Go back 5 seconds"/>
                  </tooltip>
+                 <graphic>
+                     <ImageView fitHeight="129.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@../../resources/icons/media-skip-backward-8x.png"/>
+                         </image>
+                     </ImageView>
+                 </graphic>
              </Button>
              <Button fx:id="playPauseBtn" mnemonicParsing="false" onAction="#playOrPause" prefHeight="24.0"
                      prefWidth="85.0" styleClass="menu-button" text="Play">
                  <tooltip>
                      <Tooltip text="Play/Pause the video"/>
                  </tooltip>
+                 <graphic>
+                     <ImageView fitHeight="111.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@../../resources/icons/media-play-8x.png"/>
+                         </image>
+                     </ImageView>
+                 </graphic>
              </Button>
              <Button fx:id="stopBtn" mnemonicParsing="false" onAction="#stop" prefHeight="24.0" prefWidth="88.0"
                      styleClass="menu-button" text="Stop">
                  <tooltip>
                      <Tooltip text="Stop the video"/>
                  </tooltip>
+                 <graphic>
+                     <ImageView fitHeight="104.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@../../resources/icons/media-stop-8x.png"/>
+                         </image>
+                     </ImageView>
+                 </graphic>
              </Button>
              <Button fx:id="forwardBtn" mnemonicParsing="false" onAction="#fastForward" prefHeight="24.0"
-                     prefWidth="85.0" styleClass="menu-button" text="&gt;5&gt;">
+                     prefWidth="85.0" styleClass="menu-button" text="5s">
                  <tooltip>
                      <Tooltip text="Go forward 5 seconds"/>
                  </tooltip>
+                 <graphic>
+                     <ImageView fitHeight="114.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@../../resources/icons/media-skip-forward-8x.png"/>
+                         </image>
+                     </ImageView>
+                 </graphic>
              </Button>
          </children>
       </FlowPane>

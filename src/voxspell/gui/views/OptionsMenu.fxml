@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
@@ -10,11 +11,18 @@
    <children>
       <ButtonBar layoutX="59.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
-            <Button fx:id="backBtn" defaultButton="true" mnemonicParsing="false" onAction="#goBack"
-                    styleClass="menu-button" text="Back">
+            <Button fx:id="backBtn" defaultButton="true" mnemonicParsing="false" onAction="#goBack" prefHeight="28.0"
+                    prefWidth="95.0" styleClass="menu-button" text="Menu">
                 <tooltip>
                     <Tooltip text="Back to main menu"/>
                 </tooltip>
+                <graphic>
+                    <ImageView fitHeight="76.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../resources/icons/menu-8x.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
             </Button>
         </buttons>
       </ButtonBar>
@@ -54,7 +62,8 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="resetBtn" focusTraversable="false" mnemonicParsing="false" onAction="#resetGame" prefHeight="24.0" prefWidth="75.0" text="Reset" GridPane.columnIndex="1">
+             <Button fx:id="resetBtn" focusTraversable="false" mnemonicParsing="false" onAction="#resetGame"
+                     prefHeight="28.0" prefWidth="89.0" text="Reset" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -69,6 +78,13 @@
                   <String fx:value="menu-button" />
                   <String fx:value="error-menu-button" />
                </styleClass>
+                 <graphic>
+                     <ImageView fitHeight="116.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@../../resources/icons/circle-x-8x.png"/>
+                         </image>
+                     </ImageView>
+                 </graphic>
             </Button>
          </children>
       </GridPane>
@@ -86,7 +102,8 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="previewBtn" focusTraversable="false" mnemonicParsing="false" onAction="#previewVoice" prefHeight="24.0" prefWidth="75.0" text="Preview" GridPane.columnIndex="1">
+             <Button fx:id="previewBtn" focusTraversable="false" mnemonicParsing="false" onAction="#previewVoice"
+                     prefHeight="28.0" prefWidth="109.0" text="Preview" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -101,6 +118,13 @@
                   <String fx:value="menu-button" />
                   <String fx:value="gameplay-menu-button" />
                </styleClass>
+                 <graphic>
+                     <ImageView fitHeight="96.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@../../resources/icons/volume-high-8x.png"/>
+                         </image>
+                     </ImageView>
+                 </graphic>
             </Button>
          </children>
       </GridPane>

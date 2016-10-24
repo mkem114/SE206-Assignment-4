@@ -12,6 +12,7 @@ public class ResourceLoader {
     public static final String APP_ICON_NAME = "appIcon.png";
     public static final String REWARD__NAME = "./VOXSpell/.reward.mp4";
     public static final String APP_THEME_NAME = "appTheme.css";
+    public static final String ICON_LOCATION = "icons/";
     public static final String DEFAULT_WORDLIST_NAME = "defaultWordlist.txt";
     private static ResourceLoader _instance = null;
 

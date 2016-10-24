@@ -2,8 +2,8 @@ package voxspell.gamelogic;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
-import voxspell.gui.App;
 import voxspell.inputoutput.TextToSpeech;
+import voxspell.resources.ResourceLoader;
 
 import java.io.Serializable;
 import java.util.List;
@@ -198,7 +198,7 @@ public abstract class SpellingQuiz implements Serializable {
         answer.setHeaderText(null);
         answer.setContentText("The correct answer was: " + _currentWord.word());
         DialogPane pane = answer.getDialogPane();
-        pane.getStylesheets().add(App.class.getResource("views/appTheme.css").toExternalForm());
+        pane.getStylesheets().add(ResourceLoader.inst().appTheme());
         answer.showAndWait();
     }
 

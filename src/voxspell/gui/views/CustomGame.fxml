@@ -2,12 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            stylesheets="@../../resources/appTheme.css"
-            xmlns="http://javafx.com/javafx/8.0.65" fx:controller="voxspell.gui.controllers.CustomGameController">
+            stylesheets="@../../resources/appTheme.css" xmlns="http://javafx.com/javafx/8.0.65"
+            fx:controller="voxspell.gui.controllers.CustomGameController">
    <children>
        <GridPane alignment="CENTER" layoutX="50.0" layoutY="14.0" prefHeight="49.0" prefWidth="498.0"
                  AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="14.0">
@@ -97,11 +98,18 @@
             <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-       <Button fx:id="replayBtn" layoutX="99.0" layoutY="225.0" mnemonicParsing="false" onAction="#requestReplay"
-               prefHeight="24.0" prefWidth="89.0" styleClass="menu-button" text="Replay" AnchorPane.leftAnchor="99.0">
+       <Button fx:id="replayBtn" layoutX="86.0" layoutY="225.0" mnemonicParsing="false" onAction="#requestReplay"
+               prefHeight="28.0" prefWidth="102.0" styleClass="menu-button" text="Replay" AnchorPane.leftAnchor="86.0">
            <tooltip>
                <Tooltip text="Listen to the word again"/>
            </tooltip>
+           <graphic>
+               <ImageView fitHeight="33.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../../resources/icons/loop-circular-8x.png"/>
+                   </image>
+               </ImageView>
+           </graphic>
        </Button>
        <Button fx:id="submitBtn" defaultButton="true" layoutX="199.0" layoutY="225.0" mnemonicParsing="false"
                onAction="#onSubmit" prefHeight="25.0" prefWidth="300.0" text="Check" AnchorPane.rightAnchor="101.0">
@@ -112,6 +120,13 @@
            <tooltip>
                <Tooltip text="See if your spelling answer is right"/>
            </tooltip>
+           <graphic>
+               <ImageView fitHeight="19.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../../resources/icons/check-8x.png"/>
+                   </image>
+               </ImageView>
+           </graphic>
        </Button>
        <ProgressBar fx:id="progress" layoutX="53.0" layoutY="63.0" prefHeight="20.0" prefWidth="498.0" progress="0.49"
                     style="-fx-progress-color: green;" styleClass="green-progress-bar"
@@ -120,5 +135,18 @@
                <Tooltip text="How far through this spelling quiz you are"/>
            </tooltip>
        </ProgressBar>
+       <Button fx:id="backBtn" layoutX="484.0" layoutY="358.0" mnemonicParsing="false" onAction="#backToMenu"
+               prefHeight="28.0" prefWidth="102.0" styleClass="menu-button" text="Menu">
+           <tooltip>
+               <Tooltip text="Go back the main menu"/>
+           </tooltip>
+           <graphic>
+               <ImageView fitHeight="76.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../../resources/icons/menu-8x.png"/>
+                   </image>
+               </ImageView>
+           </graphic>
+       </Button>
    </children>
 </AnchorPane>

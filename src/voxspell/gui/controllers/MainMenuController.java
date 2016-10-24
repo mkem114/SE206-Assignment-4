@@ -4,13 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import voxspell.gui.App;
 import voxspell.inputoutput.BackgroundMusic;
-import voxspell.resources.ResourceLoader;
 
 import java.io.IOException;
 
@@ -24,7 +21,7 @@ import java.io.IOException;
  */
 public class MainMenuController {
 
-	BackgroundMusic _music;
+	BackgroundMusic _music = new BackgroundMusic();
 
 	@FXML
 	private Button playBtn;
@@ -124,12 +121,5 @@ public class MainMenuController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	@FXML
-	public void initialize() {
-		_music = new BackgroundMusic();
-		Image imageMusic = new Image(ResourceLoader.inst().resourceStream("headphones-2x.png"));
-		musicBtn.setGraphic(new ImageView(imageMusic));
 	}
 }

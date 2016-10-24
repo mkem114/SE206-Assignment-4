@@ -51,6 +51,29 @@ public class CustomGameController {
 	@FXML
 	private Button submitBtn;
 
+	@FXML
+	private Button backBtn;
+
+	/**
+	 * Returns the user back to the Main Menu
+	 *
+	 * @param event Pressing the back button
+	 */
+	@FXML
+	void backToMenu(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(App.class.getResource("views/MainMenu.fxml"));
+			BorderPane menu = loader.load();
+
+			BorderPane border = App.inst().root();
+			border.setCenter(menu);
+			App.inst().saveGame();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * Code to execute when user presses the Check button (Executes code that
 	 * checks if the input is correct)
