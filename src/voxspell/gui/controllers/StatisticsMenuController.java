@@ -14,6 +14,7 @@ import voxspell.gui.App;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -97,7 +98,13 @@ public class StatisticsMenuController implements Initializable {
 		for (SpellingLevel level : stats) {
 			if (level.name().equals(statsLevelPicker.getValue())) {
 				accuracyLevel.setText(level.accuracy()+"%");
-				statsTable.setItems(level.statistics().sorted());
+				statsTable.setItems(level.statistics());
+				statsTable.getItems().sort(new Comparator<QuizWord>() {
+					@Override
+					public int compare(QuizWord o1, QuizWord o2) {
+						return o1.word().compareTo(o2.word());
+					}
+				});
 				break;
 			}
 		}
