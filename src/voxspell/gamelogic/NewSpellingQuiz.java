@@ -30,16 +30,24 @@ public class NewSpellingQuiz extends SpellingQuiz {
     }
 
     /**
-     * In a new spelling quiz all words in a level are eligible for quizzing
+     * Creates a list of words to quiz the user on based on how many times they have been attempted and how many times
+     * they have been failed
+     *
+     * @return The list of words the user will be quizzed on
      */
     @Override
     protected List<QuizWord> getWords() {
+        // Gets list of words to work with
         List<QuizWord> rawList = level().words();
+        // Shuffles words
         Collections.shuffle(rawList);
+        // If there's less than 10 words it doesn't matter
         if (rawList.size() <= 10) {
             return rawList;
-        } else {
+        } else { // Need to get 10 words
+            //Copy words
             List<QuizWord> workingList = new ArrayList<>(rawList);
+            // Sort words based on least tried then most failed then most faulted
             workingList.sort(new Comparator<QuizWord>() {
                 public int compare(QuizWord word1, QuizWord word2) {
                     if (word2.timesAttempted() > word1.timesAttempted()) {
@@ -59,10 +67,12 @@ public class NewSpellingQuiz extends SpellingQuiz {
 
                 }
             });
+            // Takes 10 most urgent words
             List<QuizWord> playList = new ArrayList<>();
             for (int i = 0; i < 10; i++) {
                 playList.add(workingList.get(i));
             }
+            // Shuffles
             Collections.shuffle(playList);
             return playList;
         }

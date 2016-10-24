@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  25 OCT 2016 07:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.11)  25 OCT 2016 07:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -144,6 +144,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 355--358
 
 
 ]
+Missing character: There is no ï in font ptmr7t!
+Missing character: There is no ¿ in font ptmr7t!
+Missing character: There is no ½ in font ptmr7t!
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 400.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -189,14 +192,14 @@ Here is how much of TeX's memory you used:
  4401 multiletter control sequences out of 15000+600000
  33007 words of font info for 62 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
- 26i,7n,19p,825b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 26i,7n,19p,826b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/d
 vips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on "VOXSpell Project Report.pdf" (3 pages, 73431 bytes).
+Output written on "VOXSpell Project Report.pdf" (3 pages, 73416 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  24 compressed objects within 1 object stream
